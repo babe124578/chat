@@ -12,3 +12,7 @@
 	margin-top: 15%;
 	display: inline-block;
 }
+
+#nameField:required {
+	position: left;
+}
