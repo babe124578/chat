@@ -9,7 +9,19 @@ class chatRoom extends Component {
 		return (
 		<div>
 			<p>Test navigate</p>
+
+			<NavLink to="/chatRoom">
+				<button class="btn btn-primary" type="submit">Enter</button>
+			</NavLink>
+
+			<NavLink to="/chatRoom">
+				<button class="btn btn-primary" type="submit">Enter</button>
+			</NavLink>
 		</div>
+
+
+
+
 		/*{<Router>
                 <switch>
                 <Route path="/" exact render={() => {
