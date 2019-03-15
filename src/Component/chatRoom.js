@@ -10,41 +10,25 @@ class chatRoom extends Component {
             <div class = "container">
                 <div class="chat-container">
                 <div class="message">
-                <img class="avatar" src="https://placeimg.com/50/50/people?1"></img>
                 <div class="datetime">
-                    23/03/2016 20:40
+                <button type="submit">Join</button>
                 </div>
-                <p>A message text</p>
+                <p>Group1</p>
                 </div>
+                
                 </div>
 
                 <div class="chat-container">
                 <div class="message">
-                <img class="avatar" src="https://placeimg.com/50/50/people?1"></img>
                 <div class="datetime">
-                    23/03/2016 20:40
+                <button type="submit">Join</button>
+                    
                 </div>
-                <p>A message text</p>
+                <p>Group2</p>
                 </div>
                 </div>
 
-                <div class="chat-container">
-                <div class="message">
-                <img class="avatar" src="https://placeimg.com/50/50/people?1"></img>
-                <div class="datetime">
-                    23/03/2016 20:40
-                </div>
-                <p>A message text</p>
-                </div>
-                </div>
-
-                <form className="input" onSubmit={(e) => this.submitMessage(e)}>
-                <input type="text" ref="msg" />
-                <input type="submit" value="Submit" />
-            </form>
             </div>
-
-        
         );
     }
 }
