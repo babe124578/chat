@@ -1,0 +1,23 @@
+* {
+    margin:0px;
+    padding:0ox;
+    font-family: sans-serif;
+}
+
+#sidebar {
+    position: left;
+    width:20%;
+    height:10000px;
+    background: blue;
+}
+
+#sidebar ul p {
+    color:rgba(230,230,230,230,0.9);
+    list-style:none;
+    padding:15px 10px;
+    border-bottom: 1px solid rgba(100,100,100,0.3);
+}
+
+#chatbar {
+    position: relative;
+}
