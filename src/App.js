@@ -4,7 +4,7 @@ import './App.css';
 import { NavLink } from "react-router-dom";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-import chatRoom from './Component/chatRoom';
+import ChatRoom from './Component/ChatRoom';
 
 class App extends Component {
 	render() {
@@ -22,7 +22,7 @@ class App extends Component {
 									<br/><br/><br/>
 									<Route>
 									<div>
-										<NavLink to="/chatRoom">
+										<NavLink to="/ChatRoom">
 											<button class="btn btn-primary" type="submit">Enter</button>
 										</NavLink>
 										
@@ -33,7 +33,7 @@ class App extends Component {
 						</div>
 						);
 					}}/>
-				<Route exact path="/chatRoom" component={chatRoom} />
+				<Route exact path="/ChatRoom" component={ChatRoom} />
 				</switch>
 			</Router>
 		);
