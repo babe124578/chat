@@ -3,11 +3,10 @@ import {NavLink} from 'react-router-dom';
 import '../CSS/ChatRoom.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-class chatRoom extends Component {
+class ChatRoom extends Component {
     render() {
         return (
         <div>
-            
             <div className="navbar">
                 <p>
                     Group List   
@@ -75,12 +74,11 @@ class chatRoom extends Component {
                     </div>
                     </div>
                 </NavLink>
-
             </div>
         </div>
         );
     }
 }
 
-export default chatRoom;
+export default ChatRoom;
 
