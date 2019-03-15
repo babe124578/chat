@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { NavLink } from "react-router-dom";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -17,7 +16,7 @@ class App extends Component {
 							<div className='container'>
 								<h1>Enter Your Name</h1>
 								<br/>
-								<form class="form-group">
+								<form className="form-group">
 									<input type="text" class="form-control" placeholder="Enter name here ..." id="nameField" required validationmessage="Please enter your name in this field."></input>
 									<br/><br/><br/>
 									<Route>
