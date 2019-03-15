@@ -1,7 +1,7 @@
 
 import React, { Component } from "react";
 import {NavLink} from 'react-router-dom';
-import './ChatRoom.css';
+import '../CSS/ChatRoom.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class chatRoom extends Component {
