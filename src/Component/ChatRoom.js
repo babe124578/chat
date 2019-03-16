@@ -9,7 +9,6 @@ class ChatRoom extends Component {
 	constructor() {
 		super();
 		this.state = {
-			username: '',
 			isLogout: false,
 			groupList: [],
 			currentGroup: null
@@ -17,91 +16,38 @@ class ChatRoom extends Component {
 	}
     render() {
         return (
-			<div>
-				{
-				this.state.isLogout? 
-				<App />
-					:
-				<div>
-					<div className="navbar">
-				<p>Welcome: {this.props.username}</p>
-						<p>
-							Group List   
-						
-						</p>
-						<button >
-							Leave Group 
-						</button>
-						<p>This Room Name</p>
-						<button>Create Group</button>
-						<NavLink to='/'>
-							<button
-								onClick={e => {
-									this.setState({ isLogout: true });
-									this.setState({ username: ''});
-									console.log(this.state.isClick);
-									console.log(this.state.username);
-								}}
-							>Logout</button>
-						</NavLink>
-					</div>
-
-					<div className = "sideContainer">
-						<NavLink to="/ChangeRoom" style={{color: 'black', textDecoration: 'none'}} activeStyle={{color: 'black', textDecoration: 'none'}}>
-							<div className="chat-container">
-							<div className="message">
-							<div className="datetime">
-								<NavLink to="/JoinRoom">
-									<button type="submit">Join Group</button>
-								</NavLink>
-							</div>
-								<p>Group</p>
-							</div>
-							</div>
-						</NavLink>
-					   
-						<NavLink to="/ChangeRoom" style={{color: 'black', textDecoration: 'none'}} activeStyle={{color: 'black', textDecoration: 'none'}}>
-							<div className="chat-container">
-							<div className="message">
-							<div className="datetime">
-								<NavLink to="/JoinRoom">
-									<button type="submit">Join Group</button>
-								</NavLink>
-							</div>
-								<p>Group2</p>
-							</div>
-							</div>
-						</NavLink>
-
-						<NavLink to="/ChangeRoom" style={{color: 'black', textDecoration: 'none'}} activeStyle={{color: 'black', textDecoration: 'none'}}>
-							<div className="chat-container">
-							<div className="message">
-							<div className="datetime">
-								<NavLink to="/JoinRoom">
-									<button type="submit">Join Group</button>
-								</NavLink>
-							</div>
-								<p>Group3</p>
-							</div>
-							</div>
-						</NavLink>
-
-						<NavLink to="/ChangeRoom" style={{color: 'black', textDecoration: 'none'}} activeStyle={{color: 'black', textDecoration: 'none'}}>
-							<div className="chat-container">
-							<div className="message">
-							<div className="datetime">
-								<NavLink to="/JoinRoom">
-									<button type="submit">Join Group</button>
-								</NavLink>
-							</div>
-								<p>Group4</p>
-							</div>
-							</div>
-						</NavLink>
-		            </div>
+			this.state.isLogout? 
+			<App />
+				:
+			<div className='ChatRoom-State'>
+				<div className="navbar">
+					<p>Welcome: {this.props.username}</p>
+					<p>Group List</p>
+					<p>This Room Name</p>
+					<button>Create Group</button>
+					<NavLink to='/'>
+						<button
+							onClick={e => {
+								this.setState({ isLogout: true });
+								console.log(this.props.username);
+							}}
+						>Logout</button>
+					</NavLink>
 				</div>
-				
-				}
+
+				<div className = "sideContainer">
+					<div className="chat-container">
+						<div className="message">
+							<div className="datetime">
+								<NavLink to="/JoinRoom">
+									<button type="submit">Join Group</button>
+								</NavLink>
+							</div>
+							<p>Group</p>
+						</div>
+					</div>
+            	</div>
+				<button >Leave Group</button>
 			</div>
         );
     }

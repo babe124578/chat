@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import { NavLink } from "react-router-dom";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import ChatRoom from './Component/ChatRoom';
 
@@ -14,44 +13,55 @@ class App extends Component {
 		};
 	}
 	
-	setName(value) {
-		this.setState((state) => {
-			return {username: value}
+	userInput(value) {
+		this.setState({
+			username: value
+		});
+	}
+	userClick() {
+		this.setState({
+			isClick: true
 		});
 	}
 	
 	render() {
 		return (
-			<div className='App-Container'>
+			<div className='App-Page'>
 				{
 					this.state.isClick? 
 					<ChatRoom username = {this.state.username} />
 						:
-					<div className='container'>
-						<h1>Enter Your Name</h1>
+					<div className='Field-Container'>
+						<h1 className='enterText'>Enter Your Name</h1>
 						<br/>
 						<input 
 							type="text" 
 							className="form-control" 
 							placeholder="Enter name here ..." 
 							id="nameField" 
-							defaultValue={this.state.username}
-							required
-							onChange={e => {
-								this.setState({ username: this.value });
-							}}
+							value={this.state.username}
+							onChange={e => this.userInput(e.target.value)}
+							required minLength={1} maxLength={15}
 						></input>
-						<br />
+						{
+							this.state.username.trim().length > 0? <br />:
+							<pre className='blankAlert'>    Please fill out this field.</pre>
+						}
 						<div>
-							<Link to='/ChatRoom'>
+							<NavLink to='/ChatRoom'>
 								<button 
+									disabled={!this.state.username.trim().length > 0}
 									className="btn btn-primary" 
 									type="submit"
 									onClick={e => {
-										function() setName(this.value);
+										this.setState((state) => {
+											return {
+												isClick: true
+											}
+									});
 									}}
 								>Enter</button>
-							</Link>
+							</NavLink>
 						</div>
 					</div>
 				}

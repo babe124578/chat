@@ -1,18 +1,32 @@
 .App {
-	text-align: center;
+	
 }
 
-.App-Container {
+.App-Page {
 	text-align: center;
 	background-image: linear-gradient(#FFFFFF, #5EB7EB);
 	height: 100vh;
 }
 
-.container {
-	margin-top: 15%;
+.Field-Container {
+	font-family: 'Baloo Chettan', cursive;
+	padding: 25px;
+	width: 400px;
+	height: 40vh;
+	border: #000000 solid 2px;
+	border-radius: 1rem;
+	background-color: #999999;
+	margin-top: 30vh;
 	display: inline-block;
+	text-align: center;
 }
 
-#nameField:required {
-	position: left;
+.enterText {
+	margin-top: 10px;
+}
+
+.blankAlert {
+	font-family: 'Quicksan';
+	text-align: left;
+	color: red;
 }
