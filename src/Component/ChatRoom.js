@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import '../CSS/ChatRoom.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
+import ScrollIntoView from 'react-scroll-into-view'
 import App from '../App';
 import Message from './Message';
 
@@ -11,42 +11,34 @@ class ChatRoom extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			typeText: '',
 			name: this.props.username,
 			isLogout: false,
 			groupList: [],
 			currentGroup: null,
 			chats: [{
                 username: "Trap",
-                content: <p>3L</p>,
+                content: <p>message1</p>,
                 img: "https://vignette.wikia.nocookie.net/youtubepoop/images/3/37/Gaben.png/revision/latest?cb=20150329133710",
             }, {
                 username: "Glue",
-                content: <p>nayok</p>,
+                content: <p>message2</p>,
                 img: "https://vignette.wikia.nocookie.net/youtubepoop/images/3/37/Gaben.png/revision/latest?cb=20150329133710",
             }, {
                 username: "Kevin",
-                content: <p>pray me</p>,
+                content: <p>message3</p>,
                 img: "https://vignette.wikia.nocookie.net/youtubepoop/images/3/37/Gaben.png/revision/latest?cb=20150329133710",
             }]
 		};
 		this.submitMessage = this.submitMessage.bind(this);
 	}
-	
-	componentDidMount() {
-        this.scrollToBot();
-    }
-
-    componentDidUpdate() {
-        this.scrollToBot();
-    }
-
-    scrollToBot() {
-        ReactDOM.findDOMNode(this.refs.chats).scrollTop = ReactDOM.findDOMNode(this.refs.chats).scrollHeight;
-    }
-
+	userInput(value) {
+		this.setState({
+			typeText: value
+		});
+	}
     submitMessage(e) {
         e.preventDefault();
-
         this.setState({
             chats: this.state.chats.concat([{
                 username: this.state.name,
@@ -56,7 +48,9 @@ class ChatRoom extends Component {
         }, () => {
             ReactDOM.findDOMNode(this.refs.msg).value = "";
         });
+		scrollBot();
     }
+	
 	
     render() {
 		const username = this.state.name;
@@ -72,7 +66,11 @@ class ChatRoom extends Component {
 						<p>Welcome: {this.props.username}</p>
 						<p>Group List</p>
 						<p>This Room Name</p>
-						<button>Create Group</button>
+						<button 
+							onClick={e => {
+								{/*add group to list here*/}
+							}}
+						>Create Group</button>
 						<NavLink to='/'>
 							<button
 								onClick={e => {
@@ -93,9 +91,9 @@ class ChatRoom extends Component {
 						</div>
 					</div>
 					
-					<div className = "chat-container">
+					<div className = "chat-container" id='scrollc'>
 						<div className="chatbox-container">
-							<ul className="chats" ref="chats">
+							<ul className="chats" id='chatInput'>
 								{
 									chats.map((chat) => 
 										<Message chat={chat} user={username} />
@@ -103,8 +101,17 @@ class ChatRoom extends Component {
 								}
 							</ul>
 							<form className="input" onSubmit={(e) => this.submitMessage(e)}>
-								<input type="text" ref="msg" />
-								<input type="submit" value="Submit" />
+								<input 
+									type="text" 
+									ref="msg" 
+									onChange={e => {
+										this.userInput(e.target.value);
+									}}/>
+								<input 
+									type="submit" 
+									value="Submit"
+									disabled={!this.state.typeText.trim().length > 0}
+								/>
 							</form>
 						</div>
 					</div>
@@ -113,6 +120,9 @@ class ChatRoom extends Component {
         );
     }
 }
-
+function scrollBot() {
+  var elmnt = document.getElementById("scrollc");
+  elmnt.scrollIntoView();
+}
 export default ChatRoom;
 
