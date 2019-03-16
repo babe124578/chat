@@ -6,12 +6,18 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import ChatRoom from './Component/ChatRoom';
 
 class App extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
 			username: '',
 			isClick: false
 		};
+	}
+	
+	setName(value) {
+		this.setState((state) => {
+			return {username: value}
+		});
 	}
 	
 	render() {
@@ -19,7 +25,7 @@ class App extends Component {
 			<div className='App-Container'>
 				{
 					this.state.isClick? 
-					<ChatRoom />
+					<ChatRoom username = {this.state.username} />
 						:
 					<div className='container'>
 						<h1>Enter Your Name</h1>
@@ -29,6 +35,7 @@ class App extends Component {
 							className="form-control" 
 							placeholder="Enter name here ..." 
 							id="nameField" 
+							defaultValue={this.state.username}
 							required
 							onChange={e => {
 								this.setState({ username: this.value });
@@ -41,10 +48,7 @@ class App extends Component {
 									className="btn btn-primary" 
 									type="submit"
 									onClick={e => {
-										this.setState({ isClick: true });
-										this.setState({ username: 'aaa'});
-										console.log(this.state.isClick);
-										console.log(this.state.username);
+										function() setName(this.value);
 									}}
 								>Enter</button>
 							</Link>
