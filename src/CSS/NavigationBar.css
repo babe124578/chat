@@ -1,57 +1,57 @@
 .ChatRoom-container {
-	height: 100vh;
-	font-family: 'Quicksan';
+  height: 100vh;
+  font-family: "Quicksan";
 }
 
 .group-container {
-	border: 1px solid;
-	height: 65px;
-	width: 30vw;
-	float: left;
+  float: left;
 }
-.group-container .message {
-	padding: 17px;
+.message {
+  border: 1px solid;
+  height: 65px;
+  width: 30vw;
+  padding: 17px;
 }
-.group-container .message .avatar {
-	float: left;
-	margin-right: 5px;
+.avatar {
+  float: left;
+  margin-right: 5px;
 }
-.group-container .message .datetime {
-	float: right;
-	color: #999;
+.datetime {
+  float: right;
+  color: #999;
 }
 .send-message-form input {
-	width: 50;
-	border: none;
-	font-size: 16px;
-	padding: 10px;
+  width: 50;
+  border: none;
+  font-size: 16px;
+  padding: 10px;
 }
 .send-message-form button {
-	display: none;
+  display: none;
 }
 
 .navbar {
-	height: 10vh;
-	overflow: hidden;
-	background-color: rgb(45, 154, 204);
+  height: 10vh;
+  overflow: hidden;
+  background-color: rgb(45, 154, 204);
 }
 
 .navbar a {
-	float: left;
-	font-size: 16px;
-	color: white;
-	text-align: center;
-	text-decoration: none;
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
 }
 
 .chat-container {
-	float: right;
-	height: 90vh;
-  width:70vw;
   float: right;
-  background-color: rgba(0,0,0, .7);
+  height: 90vh;
+  width: 70vw;
+  float: right;
+  background-color: rgba(0, 0, 0, 0.7);
   overflow: hidden;
-  box-shadow: 0 0 8px 0 rgba(0,0,0, 0.3);
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3);
 }
 
 .chats {
@@ -72,7 +72,7 @@
   float: left;
   clear: both;
   margin: 10px 0;
-  min-width:100px;
+  min-width: 100px;
   max-width: 57.5%;
   height: auto;
   word-break: break-all;
@@ -95,11 +95,10 @@
 
 .chats .chat a {
   text-decoration: none;
-  color:#3498DB;
+  color: #3498db;
 }
 
 .input {
-
   height: 40px;
   width: 100%;
   background: rgba(30, 228, 148, 0.7);
@@ -111,7 +110,7 @@
 .input input[type="text"] {
   background: rgba(255, 255, 255, 0.5);
   outline: 0;
-  border: 2px solid #1EE494;
+  border: 2px solid #1ee494;
   padding: 0 5px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
@@ -124,10 +123,10 @@
 }
 
 .input input[type="submit"] {
-	margin-right: 10px;
-	margin-left: 2px;
+  margin-right: 10px;
+  margin-left: 2px;
   background: transparent;
-  border: 1px solid #1EE494;
+  border: 1px solid #1ee494;
   height: 30px;
   width: 15%;
   font-size: 14px;
@@ -139,6 +138,6 @@
 }
 
 .input input[type="submit"]:hover {
-  background: #1EE494;
-  color: #FFF;
+  background: #1ee494;
+  color: #fff;
 }
