@@ -3,8 +3,8 @@ import "../CSS/LoginPage.css";
 import { NavLink } from "react-router-dom";
 
 class CreateRoomPage extends Component {
-  submitHandler(){
-    if(this.props.username.trim().length > 0)
+  submitHandler() {
+    if (this.props.username.trim().length > 0)
       return this.props.updateLoginStatus(true);
     return false;
   }
@@ -15,7 +15,7 @@ class CreateRoomPage extends Component {
         <div className="Field-Container">
           <h1 className="enterText">Enter New Group Name</h1>
           <br />
-          <form onSubmit='return submitHandler();'>
+          <form onSubmit="return submitHandler();">
             <input
               type="text"
               className="form-control"
@@ -42,7 +42,7 @@ class CreateRoomPage extends Component {
                   this.props.updateLoginStatus(true);
                 }}
               >
-                Creat
+                Create
               </button>
             </NavLink>
           </div>

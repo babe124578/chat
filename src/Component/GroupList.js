@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
-import ReactDOM from "react-dom";
 import "../CSS/GroupList.css";
 
 class GroupList extends Component {
@@ -10,7 +8,6 @@ class GroupList extends Component {
       groups: {},
       groupList: [],
       testIndex: 0,
-      currentGroup: null,
       groupMessage: {
         "": []
       }
@@ -57,11 +54,19 @@ class GroupList extends Component {
           {Object.keys(this.state.groups).map(
             function(key) {
               return (
-                <li className="list-group-item list-group-item-info">
+                <li
+                  className="list-group-item list-group-item-info"
+                  id="eachGroupItem"
+
+                  onClick={e => {
+                    console.log(this.props.currentGroup);
+                    this.props.updateCurrentGroup(key);
+                  }}
+                >
                   {this.state.groups[key]}
                 </li>
               );
-            }.bind(this)
+            }, this
           )}
         </ul>
 
@@ -72,17 +77,16 @@ class GroupList extends Component {
         >
           <div className="form-group">
             <label for="groupItem">
-              Group Name
               <input
                 type="text"
                 id="groupItem"
                 placeholder="e.x.aaa"
                 ref="groupName"
-                className="form-control"
+                className="form-control form-control-sm"
               />
             </label>
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary btn-sm">
             Add Group
           </button>
         </form>

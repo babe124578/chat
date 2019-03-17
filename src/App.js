@@ -12,10 +12,12 @@ class App extends Component {
     super(props);
     this.state = {
       username: "",
-      isLogin: false
+      isLogin: false,
+      currentGroup: ""
     };
     this.updateUsername = this.updateUsername.bind(this);
     this.updateLoginStatus = this.updateLoginStatus.bind(this);
+    this.updateCurrentGroup = this.updateCurrentGroup.bind(this);
   }
 
   updateUsername(value) {
@@ -28,6 +30,11 @@ class App extends Component {
       isLogin: status
     });
   }
+  updateCurrentGroup(value) {
+    this.setState({
+      currentGroup: value
+    });
+  }
 
   render() {
     return (
@@ -37,11 +44,17 @@ class App extends Component {
             <NavigationBar
               updateUsername={this.updateUsername}
               username={this.state.username}
+              currentGroup={this.state.currentGroup}
               updateLoginStatus={this.updateLoginStatus}
               isLogin={this.state.isLogin}
             />
-            <GroupList />
+            <GroupList
+              updateCurrentGroup={this.updateCurrentGroup}
+              currentGroup={this.state.currentGroup}
+              username={this.state.username}
+            />
             <ChatPanel username={this.state.username} />
+            <MessageInputField />
           </div>
         ) : (
           <div>

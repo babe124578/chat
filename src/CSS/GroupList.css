@@ -1,10 +1,14 @@
 .groupList-container {
-  width: 30vw;
+  width: calc(30vw - 10px);
   float: left;
 }
 
-.list-group {
+.list-group {  
+  width: 30vw - 10 px;
+  padding: 10px;
   margin-left: 10px;
-  width: 30vw;
-  padding: 17px;
+}
+#eachGroupItem:hover{
+  background: #1ee494;
+  color: #fff;
 }

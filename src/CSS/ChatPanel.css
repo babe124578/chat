@@ -1,9 +1,9 @@
 .chat-container {
   float: right;
-  height: 100vh;
+  height: 90vh;
   width: 68vw;
   float: right;
-  background-color: #c1ffff;
+  background-color: rgba(0, 0, 0, 0.7);
   overflow: hidden;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3);
 }
@@ -12,7 +12,7 @@
   box-sizing: border-box;
   padding: 0 20px;
   margin: 10px 0 0;
-  height: 93.8vh;
+  height: 510px;
   overflow-y: scroll;
 }
 
@@ -22,7 +22,6 @@
   padding: 5px 13px;
   font-size: 14px;
   border-radius: 10px;
-  border: 1px solid black;
   list-style: none;
   float: left;
   clear: both;
@@ -56,7 +55,7 @@
 .input {
   height: 40px;
   width: 100%;
-  background: transparent;
+  background: rgba(30, 228, 148, 0.7);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -65,7 +64,7 @@
 .input input[type="text"] {
   background: rgba(255, 255, 255, 0.5);
   outline: 0;
-  border: 1px solid black;
+  border: 2px solid #1ee494;
   padding: 0 5px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
@@ -80,8 +79,8 @@
 .input input[type="submit"] {
   margin-right: 10px;
   margin-left: 2px;
-  background: #57f93e;
-  border: 1px solid black;
+  background: transparent;
+  border: 1px solid #1ee494;
   height: 30px;
   width: 15%;
   font-size: 14px;
@@ -90,7 +89,6 @@
   border-bottom-right-radius: 5px;
   cursor: pointer;
   transition: all 0.3s ease;
-  color : black;
 }
 
 .input input[type="submit"]:hover {

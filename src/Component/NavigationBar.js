@@ -9,7 +9,7 @@ class NavigationBar extends Component {
         <div className="navbar">
           <p>Welcome: {this.props.username}</p>
           <p>Group List</p>
-          <p>This Room Name</p>
+          <p>Group Name: {this.props.currentGroup}</p>
           <button>Create Group</button>
           <NavLink to="/">
             <button

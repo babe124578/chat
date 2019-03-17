@@ -1,17 +1,3 @@
-.ChatRoom-container {
-  height: 100vh;
-  font-family: "Quicksan";
-}
-
-.group-container {
-  float: left;
-}
-.message {
-  border: 1px solid;
-  height: 65px;
-  width: 30vw;
-  padding: 17px;
-}
 .avatar {
   float: left;
   margin-right: 5px;
