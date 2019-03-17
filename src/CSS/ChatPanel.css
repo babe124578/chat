@@ -1,0 +1,97 @@
+.chat-container {
+  float: right;
+  height: 90vh;
+  width: 68vw;
+  float: right;
+  background-color: rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3);
+}
+
+.chats {
+  box-sizing: border-box;
+  padding: 0 20px;
+  margin: 10px 0 0;
+  height: 510px;
+  overflow-y: scroll;
+}
+
+.chats .chat {
+  background: rgba(255, 255, 255, 0.8);
+  position: relative;
+  padding: 5px 13px;
+  font-size: 14px;
+  border-radius: 10px;
+  list-style: none;
+  float: left;
+  clear: both;
+  margin: 10px 0;
+  min-width: 100px;
+  max-width: 57.5%;
+  height: auto;
+  word-break: break-all;
+  text-overflow: ellipsis;
+}
+
+.chats .chat img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  top: -10px;
+  left: 0px;
+}
+
+.chats .chat.right {
+  float: right;
+  clear: both;
+}
+
+.chats .chat a {
+  text-decoration: none;
+  color: #3498db;
+}
+
+.input {
+  height: 40px;
+  width: 100%;
+  background: rgba(30, 228, 148, 0.7);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.input input[type="text"] {
+  background: rgba(255, 255, 255, 0.5);
+  outline: 0;
+  border: 2px solid #1ee494;
+  padding: 0 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  margin-left: 10px;
+  margin-right: 2px;
+  height: 30px;
+  width: 85%;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.input input[type="submit"] {
+  margin-right: 10px;
+  margin-left: 2px;
+  background: transparent;
+  border: 1px solid #1ee494;
+  height: 30px;
+  width: 15%;
+  font-size: 14px;
+  box-sizing: border-box;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.input input[type="submit"]:hover {
+  background: #1ee494;
+  color: #fff;
+}

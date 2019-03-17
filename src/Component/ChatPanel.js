@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import "../CSS/ChatRoom.css";
+import "../CSS/ChatPanel.css";
 import App from "../App";
 import Message from "./Message";
 

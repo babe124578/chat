@@ -3,6 +3,9 @@ import "./App.css";
 
 import NavigationBar from "./Component/NavigationBar";
 import LoginPage from "./Component/LoginPage";
+import GroupList from "./Component/GroupList";
+import MessageInputField from "./Component/MessageInputField";
+import ChatPanel from "./Component/ChatPanel";
 
 class App extends Component {
   constructor(props) {
@@ -37,6 +40,9 @@ class App extends Component {
               updateLoginStatus={this.updateLoginStatus}
               isLogin={this.state.isLogin}
             />
+            <GroupList />
+			<ChatPanel />
+            <MessageInputField />
           </div>
         ) : (
           <div>

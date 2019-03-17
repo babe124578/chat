@@ -1,0 +1,10 @@
+.groupList-container {
+  width: 30vw;
+  float: left;
+}
+
+.list-group {
+  margin-left: 10px;
+  width: 30vw;
+  padding: 17px;
+}
