@@ -3,7 +3,7 @@ import "./App.css";
 
 import NavigationBar from "./Component/NavigationBar";
 import LoginPage from "./Component/LoginPage";
-
+import MessageInputField from "./Component/MessageInputField";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -37,6 +37,7 @@ class App extends Component {
               updateLoginStatus={this.updateLoginStatus}
               isLogin={this.state.isLogin}
             />
+            <MessageInputField />
           </div>
         ) : (
           <div>
