@@ -28,7 +28,7 @@ class ChatPanel extends Component {
         },
         {
           username: "Kevin",
-          content: <p>message3</p>,
+          content: <p>message3adfasdfajsdfkjasdfjkasdfklhaslkdfhkasdjfklahsdflkjhalskdfhlkds</p>,
           img:
             "https://vignette.wikia.nocookie.net/youtubepoop/images/3/37/Gaben.png/revision/latest?cb=20150329133710"
         }

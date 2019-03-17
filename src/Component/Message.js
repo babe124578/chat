@@ -12,6 +12,7 @@ const Message = ({ chat, user }) => (
       }}
     >
       {chat.username}
+      <img src={"https://api.adorable.io/avatars/200/"+ chat.username +".png"} alt="Avatar"/>
     </div>
     <br />
     {chat.content}
