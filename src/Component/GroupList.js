@@ -10,21 +10,13 @@ class GroupList extends Component {
       groupList: [],
       testIndex: 0,
       currentGroup: null,
+      groupMessage: {
+        "": []
+      }
     };
-  }
-  createGroup() {
-    this.state.groupList.push("group" + this.state.testIndex);
-    const item = this.state.groupList;
-    const title = "";
-    const text = "";
-    item.push({ title, text });
-    this.setState({ groupList: item });
   }
 
   render() {
-    /* const username = this.state.name;
-   const { chats } = this.state;*/
-
     return (
       <div className="group-container">
         {/*<div className="message">
@@ -37,7 +29,7 @@ class GroupList extends Component {
             </div>*/}
 
         <div>
-          {this.state.groupList.map((item, { testIndex }) => {
+          {/*this.state.groupList.map((item, { testIndex }) => {
             return (
               <div className="message" key={testIndex}>
                 <div className="datetime">
@@ -48,7 +40,7 @@ class GroupList extends Component {
                 <p>group {testIndex}</p>
               </div>
             );
-          })}
+          })*/}
         </div>
       </div>
     );

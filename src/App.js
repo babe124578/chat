@@ -11,11 +11,11 @@ class App extends Component {
       username: "",
       isLogin: false
     };
-    this.updateInput = this.updateInput.bind(this);
+    this.updateUsername = this.updateUsername.bind(this);
     this.updateLoginStatus = this.updateLoginStatus.bind(this);
   }
 
-  updateInput(value) {
+  updateUsername(value) {
     this.setState({
       username: value
     });
@@ -32,7 +32,7 @@ class App extends Component {
         {this.state.isLogin ? (
           <div>
             <NavigationBar
-              updateInput={this.updateInput}
+              updateUsername={this.updateUsername}
               username={this.state.username}
               updateLoginStatus={this.updateLoginStatus}
               isLogin={this.state.isLogin}
@@ -41,7 +41,7 @@ class App extends Component {
         ) : (
           <div>
             <LoginPage
-              updateInput={this.updateInput}
+              updateUsername={this.updateUsername}
               updateLoginStatus={this.updateLoginStatus}
               username={this.state.username}
               isLogin={this.state.isLogin}
