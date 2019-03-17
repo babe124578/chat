@@ -19,11 +19,11 @@ class CreateRoomPage extends Component {
             <input
               type="text"
               className="form-control"
-              placeholder="Enter name here ..."
+              placeholder="Enter room name here ..."
               id="nameField"
               value={this.props.username}
               onChange={e => {
-                this.props.updateUsername(e.target.value);
+                this.props.updateRoomName(e.target.value);
               }}
             />
           </form>

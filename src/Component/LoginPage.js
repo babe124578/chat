@@ -3,9 +3,14 @@ import "../CSS/LoginPage.css";
 import { NavLink } from "react-router-dom";
 
 class LoginPage extends Component {
-  submitHandler(){
+  constructor() {
+    super();
+    this.submitHandler = this.submitHandler.bind(this);
+  }
+  submitHandler(e){
     if(this.props.username.trim().length > 0)
-      return this.props.updateLoginStatus(true);
+      this.props.updateCurrentPage('Chat');
+    else
     return false;
   }
 
@@ -15,7 +20,7 @@ class LoginPage extends Component {
         <div className="Field-Container">
           <h1 className="enterText">Enter Your Name</h1>
           <br />
-          <form onSubmit='return submitHandler();'>
+          <form onSubmit={this.submitHandler}>
             <input
               type="text"
               className="form-control"
@@ -39,7 +44,7 @@ class LoginPage extends Component {
                 className="btn btn-primary"
                 type="submit"
                 onClick={e => {
-                  this.props.updateLoginStatus(true);
+                  this.props.updateCurrentPage('Chat');
                 }}
               >
                 Enter

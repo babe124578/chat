@@ -16,21 +16,15 @@ class ChatPanel extends Component {
       chats: [
         {
           username: "Trap",
-          content: <p>message1</p>,
-          img:
-            "https://vignette.wikia.nocookie.net/youtubepoop/images/3/37/Gaben.png/revision/latest?cb=20150329133710"
+          content: <p>message1</p>
         },
         {
           username: "Glue",
-          content: <p>message2</p>,
-          img:
-            "https://vignette.wikia.nocookie.net/youtubepoop/images/3/37/Gaben.png/revision/latest?cb=20150329133710"
+          content: <p>message2</p>
         },
         {
           username: "Kevin",
           content: <p>message3adfasdfajsdfkjasdfjkasdfklhaslkdfhkasdjfklahsdflkjhalskdfhlkds</p>,
-          img:
-            "https://vignette.wikia.nocookie.net/youtubepoop/images/3/37/Gaben.png/revision/latest?cb=20150329133710"
         }
       ]
     };
@@ -49,8 +43,6 @@ class ChatPanel extends Component {
           {
             username: this.state.name,
             content: <p>{ReactDOM.findDOMNode(this.refs.msg).value}</p>,
-            img:
-              "https://vignette.wikia.nocookie.net/youtubepoop/images/3/37/Gaben.png/revision/latest?cb=20150329133710"
           }
         ])
       },
