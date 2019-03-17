@@ -41,7 +41,7 @@ class App extends Component {
               isLogin={this.state.isLogin}
             />
             <GroupList />
-			<ChatPanel />
+            <ChatPanel username={this.state.username} />
             <MessageInputField />
           </div>
         ) : (
