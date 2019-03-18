@@ -53,7 +53,7 @@ class App extends Component {
               username={this.state.username}
               createGroup={this.state.createGroup}
             />
-            <ChatPanel username={this.state.username} />
+            <ChatPanel username={this.state.username} currentGroup={this.state.currentGroup} />
           </div>
         ) : this.state.currentPage === "Login" ? (
           <div>

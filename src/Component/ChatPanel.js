@@ -12,69 +12,82 @@ class ChatPanel extends Component {
       name: this.props.username,
       isLogout: false,
       groupList: [],
-      currentGroup: null,
       chats: [
         {
-          username: "Trap",
+          username: "This",
           content: <p>message1</p>,
           timeStamp: "1:23"
         },
         {
-          username: "Glue",
+          username: "is",
           content: <p>message2</p>,
           timeStamp: "2:34"
         },
         {
-          username: "Kevin",
+          username: "Group1",
           content: <p>message3adfasdfajsdfkjasdfjkasdfklhaslkdfhkasdjfklahsdflkjhalskdfhlkds</p>,
           timeStamp: "3.45"
         },
+      ],
+      allChats : {
+        "" : [
         {
-          username: "Trap",
-          content: <p>message1</p>,
+          username: "Test ja ",
+          content: <p> Test ja</p>,
+          timeStamp: "wtf"
+        }],
+        "Group1" : [
+        {
+          username: "This",
+          content: <p>This</p>,
           timeStamp: "1:23"
         },
         {
-          username: "Glue",
-          content: <p>message2</p>,
+          username: "is",
+          content: <p>is</p>,
           timeStamp: "2:34"
         },
         {
-          username: "Kevin",
-          content: <p>message3adfasdfajsdfkjasdfjkasdfklhaslkdfhkasdjfklahsdflkjhalskdfhlkds</p>,
+          username: "Group1",
+          content: <p>group1</p>,
           timeStamp: "3.45"
         },
+      ],
+      "Group2" : [
         {
-          username: "Trap",
-          content: <p>message1</p>,
+          username: "This",
+          content: <p>This</p>,
           timeStamp: "1:23"
         },
         {
-          username: "Glue",
-          content: <p>message2</p>,
+          username: "is",
+          content: <p>is</p>,
           timeStamp: "2:34"
         },
         {
-          username: "Kevin",
-          content: <p>message3adfasdfajsdfkjasdfjkasdfklhaslkdfhkasdjfklahsdflkjhalskdfhlkds</p>,
+          username: "Group2",
+          content: <p>group2</p>,
           timeStamp: "3.45"
         },
+      ],
+      "Group3" : [
         {
-          username: "Trap",
-          content: <p>message1</p>,
+          username: "This",
+          content: <p>This</p>,
           timeStamp: "1:23"
         },
         {
-          username: "Glue",
-          content: <p>message2</p>,
+          username: "is",
+          content: <p>is</p>,
           timeStamp: "2:34"
         },
         {
-          username: "Kevin",
-          content: <p>message3adfasdfajsdfkjasdfjkasdfklhaslkdfhkasdjfklahsdflkjhalskdfhlkds</p>,
+          username: "Group3",
+          content: <p>Group3</p>,
           timeStamp: "3.45"
-        }
+        },
       ]
+      }
     };
     this.submitMessage = this.submitMessage.bind(this);
   }
@@ -104,7 +117,7 @@ class ChatPanel extends Component {
 
   render() {
     const username = this.state.name;
-    const { chats } = this.state;
+    const { chats,allChats} = this.state;
 
     return this.state.isLogout ? (
       <App />
@@ -114,7 +127,7 @@ class ChatPanel extends Component {
           <div className="chat-container" id="scrollc">
             <div className="chatbox-container">
               <ul className="chats" id="chatInput">
-                {chats.map(chat => (
+                {allChats[this.props.currentGroup].map(chat => (
                   <Message chat={chat} user={username} />
                 ))}
               </ul>
