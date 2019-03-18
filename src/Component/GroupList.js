@@ -33,17 +33,17 @@ class GroupList extends Component {
           key="abcd"
         >
           <div className="form-group">
-            <label for="groupItem">
+            <label className="addLabel" for="groupItem">
               <input
                 type="text"
                 id="groupItem"
-                placeholder="type group name here"
+                placeholder="Type New Group Name Here"
                 ref="groupName"
                 className="inputLeft"
               />
             </label>
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary btn-sm">
             Add Group
           </button>
         </form>
