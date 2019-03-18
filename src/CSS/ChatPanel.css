@@ -1,7 +1,7 @@
 .chat-container {
   float: right;
-  height: 90vh;
-  width: 68vw;
+  height: 100%;
+  width: 68%;
   float: right;
   background-color: #D6EDFB;
   overflow: hidden;
@@ -29,6 +29,7 @@
   margin-bottom: 10px;
   min-width: 100px;
   max-width: 57.5%;
+  
   height: auto;
   word-break: break-all;
   text-overflow: ellipsis;

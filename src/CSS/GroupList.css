@@ -1,13 +1,17 @@
 .groupList-container {
-  width: calc(537px);
-  height: calc(537px);
+  width: calc(32%);
+  height: calc(100%);
   float: left;
 }
 
 .list-group {  
-  width: 1000 px;
+  width: 100 px;
   padding: 0px;
   margin-left: 0px;
+}
+
+.form-group{
+  width: 100%;
 }
 
 .eachGroupItem{
