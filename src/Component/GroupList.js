@@ -53,27 +53,10 @@ class GroupList extends Component {
   }
   render() {
     return (
+      
       <div className="groupList-container">
-        <ul className="list-group">
-          
 
-          {this.state.groupList.map(function(listvalue) {
-            return (
-              <li
-                className="list-group-item list-group-item-info"
-                id="eachGroupItem"
-                onClick={e => {
-                  console.log(listvalue);
-                  this.updateGroup(listvalue);
-                }}
-              >
-                {listvalue}
-              </li>
-            );
-          },this)}
-        </ul>
-
-        <form
+<form
           className="form-inline"
           ref="groupForm"
           onSubmit={this.createGroup}
@@ -96,6 +79,26 @@ class GroupList extends Component {
             Add Group
           </button>
         </form>
+        <ul className="list-group">
+          
+
+          {this.state.groupList.map(function(listvalue) {
+            return (
+              <li
+                className="list-group-item list-group-item-info"
+                id="eachGroupItem"
+                onClick={e => {
+                  console.log(listvalue);
+                  this.updateGroup(listvalue);
+                }}
+              >
+                {listvalue}
+              </li>
+            );
+          },this)}
+        </ul>
+
+        
       </div>
     );
   }

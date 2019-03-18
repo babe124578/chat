@@ -8,13 +8,7 @@ class NavigationBar extends Component {
       <div>
         <div className="navbar">
           <p>Welcome: {this.props.username}</p>
-          <p>Group List</p>
           <p>Group Name: {this.props.currentGroup}</p>
-          <button
-            onClick={e => {
-              this.props.updateCurrentPage('Create');
-            }}
-          >Create Group</button>
           <NavLink to="/">
             <button
               onClick={e => {
