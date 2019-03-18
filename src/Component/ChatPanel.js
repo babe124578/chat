@@ -16,15 +16,63 @@ class ChatPanel extends Component {
       chats: [
         {
           username: "Trap",
-          content: <p>message1</p>
+          content: <p>message1</p>,
+          timeStamp: "1:23"
         },
         {
           username: "Glue",
-          content: <p>message2</p>
+          content: <p>message2</p>,
+          timeStamp: "2:34"
         },
         {
           username: "Kevin",
           content: <p>message3adfasdfajsdfkjasdfjkasdfklhaslkdfhkasdjfklahsdflkjhalskdfhlkds</p>,
+          timeStamp: "3.45"
+        },
+        {
+          username: "Trap",
+          content: <p>message1</p>,
+          timeStamp: "1:23"
+        },
+        {
+          username: "Glue",
+          content: <p>message2</p>,
+          timeStamp: "2:34"
+        },
+        {
+          username: "Kevin",
+          content: <p>message3adfasdfajsdfkjasdfjkasdfklhaslkdfhkasdjfklahsdflkjhalskdfhlkds</p>,
+          timeStamp: "3.45"
+        },
+        {
+          username: "Trap",
+          content: <p>message1</p>,
+          timeStamp: "1:23"
+        },
+        {
+          username: "Glue",
+          content: <p>message2</p>,
+          timeStamp: "2:34"
+        },
+        {
+          username: "Kevin",
+          content: <p>message3adfasdfajsdfkjasdfjkasdfklhaslkdfhkasdjfklahsdflkjhalskdfhlkds</p>,
+          timeStamp: "3.45"
+        },
+        {
+          username: "Trap",
+          content: <p>message1</p>,
+          timeStamp: "1:23"
+        },
+        {
+          username: "Glue",
+          content: <p>message2</p>,
+          timeStamp: "2:34"
+        },
+        {
+          username: "Kevin",
+          content: <p>message3adfasdfajsdfkjasdfjkasdfklhaslkdfhkasdjfklahsdflkjhalskdfhlkds</p>,
+          timeStamp: "3.45"
         }
       ]
     };

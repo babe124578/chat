@@ -2,17 +2,18 @@ import React from "react";
 
 const Message = ({ chat, user }) => (
   <li className={`chat ${user === chat.username ? "right" : "left"}`}>
-    <div>
+    <span className="profile">
+      <img className={`${user === chat.username ? "right" : "left"}`} src={"https://api.adorable.io/avatars/200/" + chat.username + ".png"} alt="Avatar"/>
       <div className={`chatname ${user === chat.username ? "right" : "left"}`}>
         {chat.username}
       </div>
-      <img
-        src={"https://api.adorable.io/avatars/200/" + chat.username + ".png"}
-        alt="Avatar"
-      />
-    </div>
-    <br />
+    </span>
+    <div className={`content ${user === chat.username ? "right" : "left"}`}>
     {chat.content}
+    </div>
+    <div className={`time ${user === chat.username ? "left" : "right"}`}>
+    {chat.timeStamp}
+    </div>
   </li>
 );
 

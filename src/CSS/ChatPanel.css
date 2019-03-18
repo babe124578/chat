@@ -26,7 +26,7 @@
   list-style: none;
   float: left;
   clear: both;
-  margin: 10px 0;
+  margin-bottom: 10px;
   min-width: 100px;
   max-width: 57.5%;
   height: auto;
@@ -39,10 +39,23 @@
   height: 40px;
   border-radius: 50%;
   position: absolute;
-  top: -10px;
-  left: 0px;
+  top: 5px;
+}
+img.right{
+  right:10px;
 }
 
+img.left{
+  left:10px;
+}
+
+.content.right{
+  margin-right: 50px;
+}
+
+.content.left{
+  margin-left: 50px;
+}
 .chats .chat.right {
   float: right;
   clear: both;
@@ -51,6 +64,16 @@
 .chats .chat a {
   text-decoration: none;
   color: #3498db;
+}
+
+.time.right{
+  float:right;
+  color: #999;
+}
+
+.time.left{
+  float:left;
+  color: #999;
 }
 
 .input {
@@ -96,4 +119,19 @@
 .input input[type="submit"]:hover {
   background: #1ee494;
   color: #fff;
+}
+
+.profile{
+  text-align: justify;
+}
+.profile img{
+  display: block;
+}
+.chatname.right{
+  margin-top:40px;
+  float: right;
+}
+.chatname.left{
+  margin-top:40px;
+  float:left;
 }
