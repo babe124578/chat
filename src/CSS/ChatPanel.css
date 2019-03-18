@@ -3,7 +3,7 @@
   height: 90vh;
   width: 68vw;
   float: right;
-  background-color: #c1ffff;
+  background-color: #D6EDFB;
   overflow: hidden;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3);
 }
@@ -80,7 +80,7 @@
 .input input[type="submit"] {
   margin-right: 10px;
   margin-left: 2px;
-  background: #57f93e;
+  background: #A6CF84;
   border: 1px solid black;
   height: 30px;
   width: 15%;
