@@ -11,22 +11,29 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentPage: 'Login',
+      currentPage: "Login",
       username: "",
       currentGroup: "",
-      groups: {},
-      isClickCreateGroup: ''
+      isClickCreateGroup: "",
+      tempGroupName: "",
+      groupList: ["aa", "bb", "cc"]
     };
     this.updateUsername = this.updateUsername.bind(this);
     this.updateCurrentPage = this.updateCurrentPage.bind(this);
     this.updateCurrentGroup = this.updateCurrentGroup.bind(this);
-    this.addGroups = this.addGroups.bind(this);
+    this.onAddItem = this.onAddItem.bind(this);
     this.createGroup = this.createGroup.bind(this);
+    this.updateTemporary = this.updateTemporary.bind(this);
   }
 
   updateUsername(value) {
     this.setState({
       username: value
+    });
+  }
+  updateTemporary(value) {
+    this.setState({
+      tempGroupName: value
     });
   }
   updateCurrentPage(status) {
@@ -39,19 +46,16 @@ class App extends Component {
       currentGroup: value
     });
   }
-  addGroups(group) {
-    var timestamp = new Date().getTime();
-    // eslint-disable-next-line react/no-direct-mutation-state
-    this.state.groups["group-" + timestamp] = group;
+  onAddItem() {
     this.setState({
-      groups: this.state.groups
+      groupList: [...this.state.groupList, this.state.tempGroupName]
     });
   }
   createGroup(e) {
     e.preventDefault();
     var group = this.refs.groupName.value;
     if (typeof group === "string" && group.length > 0) {
-      this.addGroups(group);
+      this.onAddItem();
       this.refs.groupForm.reset();
     }
   }
@@ -59,7 +63,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        {this.state.currentPage === 'Chat' ? (
+        {this.state.currentPage === "Chat" ? (
           <div>
             <NavigationBar
               updateUsername={this.updateUsername}
@@ -72,10 +76,12 @@ class App extends Component {
               updateCurrentGroup={this.updateCurrentGroup}
               currentGroup={this.state.currentGroup}
               username={this.state.username}
+              groupList={this.state.GroupList}
+              createGroup={this.state.createGroup}
             />
             <ChatPanel username={this.state.username} />
           </div>
-        ) : this.state.currentPage === 'Login' ? (
+        ) : this.state.currentPage === "Login" ? (
           <div>
             <LoginPage
               updateUsername={this.updateUsername}
@@ -84,12 +90,16 @@ class App extends Component {
               currentPage={this.state.currentPage}
             />
           </div>
-        ) : this.state.currentPage === 'Create' ? (
-            <div>
-              <CreateRoomPage />
-            </div>
-        ) : ( null )
-        }
+        ) : this.state.currentPage === "Create" ? (
+          <div>
+            <CreateRoomPage
+              updateUsername={this.updateUsername}
+              updateCurrentPage={this.updateCurrentPage}
+              username={this.state.username}
+              currentPage={this.state.currentPage}
+            />
+          </div>
+        ) : null}
       </div>
     );
   }

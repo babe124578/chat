@@ -3,27 +3,30 @@ import "../CSS/LoginPage.css";
 import { NavLink } from "react-router-dom";
 
 class CreateRoomPage extends Component {
-  submitHandler() {
+  constructor() {
+    super();
+    this.submitHandler = this.submitHandler.bind(this);
+  }
+  submitHandler(e) {
     if (this.props.username.trim().length > 0)
-      return this.props.updateLoginStatus(true);
-    return false;
+      this.props.updateCurrentPage("Chat");
+    else return false;
   }
 
   render() {
     return (
       <div className="Login-Page">
         <div className="Field-Container">
-          <h1 className="enterText">Enter New Group Name</h1>
+          <h1 className="enterText">Enter Your Name</h1>
           <br />
-          <form onSubmit="return submitHandler();">
+          <form onSubmit={this.submitHandler}>
             <input
               type="text"
               className="form-control"
-              placeholder="Enter room name here ..."
+              placeholder="Enter name here ..."
               id="nameField"
-              value={this.props.username}
               onChange={e => {
-                this.props.updateRoomName(e.target.value);
+                this.props.updateUsername(e.target.value);
               }}
             />
           </form>
@@ -39,10 +42,10 @@ class CreateRoomPage extends Component {
                 className="btn btn-primary"
                 type="submit"
                 onClick={e => {
-                  this.props.updateLoginStatus(true);
+                  this.props.updateCurrentPage("Chat");
                 }}
               >
-                Create
+                Enter
               </button>
             </NavLink>
           </div>

@@ -7,11 +7,10 @@ class LoginPage extends Component {
     super();
     this.submitHandler = this.submitHandler.bind(this);
   }
-  submitHandler(e){
-    if(this.props.username.trim().length > 0)
-      this.props.updateCurrentPage('Chat');
-    else
-    return false;
+  submitHandler(e) {
+    if (this.props.username.trim().length > 0)
+      this.props.updateCurrentPage("Chat");
+    else return false;
   }
 
   render() {
@@ -26,7 +25,6 @@ class LoginPage extends Component {
               className="form-control"
               placeholder="Enter name here ..."
               id="nameField"
-              value={this.props.username}
               onChange={e => {
                 this.props.updateUsername(e.target.value);
               }}
@@ -44,7 +42,7 @@ class LoginPage extends Component {
                 className="btn btn-primary"
                 type="submit"
                 onClick={e => {
-                  this.props.updateCurrentPage('Chat');
+                  this.props.updateCurrentPage("Chat");
                 }}
               >
                 Enter
