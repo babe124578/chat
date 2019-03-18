@@ -12,10 +12,7 @@ class App extends Component {
     this.state = {
       currentPage: "Login",
       username: "",
-      currentGroup: "",
-      isClickCreateGroup: "",
-      tempGroupName: "",
-      groupList: ["aa", "bb", "cc"]
+      currentGroup: ""
     };
     this.updateUsername = this.updateUsername.bind(this);
     this.updateCurrentPage = this.updateCurrentPage.bind(this);
@@ -54,7 +51,6 @@ class App extends Component {
               updateCurrentGroup={this.updateCurrentGroup}
               currentGroup={this.state.currentGroup}
               username={this.state.username}
-              groupList={this.state.GroupList}
               createGroup={this.state.createGroup}
             />
             <ChatPanel username={this.state.username} />

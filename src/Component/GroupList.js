@@ -5,28 +5,22 @@ class GroupList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tempGroupName: "",
-      groups: {},
       groupList: ["Group1", "Group2", "Group3"]
     };
     this.createGroup = this.createGroup.bind(this)
   }
-  updateTempGroupName(value) {
-    this.setState({
-      tempGroupName: value
-    })
-  }
   onAddItem() {
     this.setState({
-      groupList: [...this.state.groupList, this.state.tempGroupName]
+      groupList: [...this.state.groupList, this.refs.groupName.value]
     });
+    this.refs.groupForm.reset();
   }
   createGroup(e) {
     e.preventDefault();
     var group = this.refs.groupName.value;
     if (typeof group === "string" && group.length > 0) {
       this.onAddItem();
-      this.refs.groupForm.reset();
+      
     }
   }
   render() {
@@ -36,6 +30,7 @@ class GroupList extends Component {
           className="form-inline"
           ref="groupForm"
           onSubmit={this.createGroup}
+          key="abcd"
         >
           <div className="form-group">
             <label for="groupItem">
@@ -45,9 +40,6 @@ class GroupList extends Component {
                 placeholder="type group name here"
                 ref="groupName"
                 className="inputLeft"
-                onChange={e => {
-                  this.updateTempGroupName(e.target.value);
-                }}
               />
             </label>
           </div>
