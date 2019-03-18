@@ -127,9 +127,11 @@ class ChatPanel extends Component {
           <div className="chat-container" id="scrollc">
             <div className="chatbox-container">
               <ul className="chats" id="chatInput">
-                {allChats[this.props.currentGroup].map(chat => (
+                {allChats[this.props.currentGroup] ? (allChats[this.props.currentGroup].map(chat => (
                   <Message chat={chat} user={username} />
-                ))}
+                ))
+                ) : ( null )
+              }
               </ul>
               <form className="input" onSubmit={e => this.submitMessage(e)}>
                 <input
