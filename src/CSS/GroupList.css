@@ -1,18 +1,35 @@
 .groupList-container {
-  width: calc(30vw - 10px);
+  width: calc(537px);
+  height: calc(537px);
   float: left;
 }
 
 .list-group {  
-  width: 30vw - 10 px;
-  padding: 10px;
-  margin-left: 10px;
+  width: 1000 px;
+  padding: 0px;
+  margin-left: 0px;
 }
+
+.eachGroupItem{
+  height: 30px;
+}
+
 #eachGroupItem:hover{
-  background: #1ee494;
+  background: #0fc5f3;
   color: #fff;
+}
+
+.inputLeft{
+    width: 431px;
+    padding: 5px;
 }
 
 .ThreeButton{
   float: right;
+}
+
+.btn-block {
+  padding: 10% 0; 
+  /* define values in pixels / Percentage or em. whatever suits 
+     your requirements */
 }

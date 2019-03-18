@@ -7,7 +7,7 @@ class GroupList extends Component {
     this.state = {
       tempGroupName: "",
       groups: {},
-      groupList: ["aa", "bb", "cc"]
+      groupList: ["Group1", "Group2", "Group3"]
     };
     this.createGroup = this.createGroup.bind(this)
   }
@@ -42,16 +42,16 @@ class GroupList extends Component {
               <input
                 type="text"
                 id="groupItem"
-                placeholder="e.x.aaa"
+                placeholder="type group name here"
                 ref="groupName"
-                className="form-control form-control-sm"
+                className="inputLeft"
                 onChange={e => {
                   this.updateTempGroupName(e.target.value);
                 }}
               />
             </label>
           </div>
-          <button type="submit" className="btn btn-primary btn-sm">
+          <button type="submit" className="btn btn-primary">
             Add Group
           </button>
         </form>
@@ -64,15 +64,13 @@ class GroupList extends Component {
                 onClick={e => {
                   console.log(listvalue);
                   this.props.updateCurrentGroup(listvalue);
-                }}
-              >
+                }}>
                 {listvalue}
                 <div className="ThreeButton">
                 <button>Join</button>
                 <button>Exit</button>
                 <button>Leave</button>
               </div>
-
               </li>
             );
           }, this)}
