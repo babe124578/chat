@@ -40,8 +40,17 @@
   background-color:#44c767;
 }
 
+.greenBtn:hover{
+  background-color:#44db6c;
+}
+
 .redBtn{
   background-color:#ca5c5c;
+  margin-left: 4px;
+}
+
+.redBtn:hover{
+  background-color:#ce7474;
   margin-left: 4px;
 }
 
