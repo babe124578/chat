@@ -52,14 +52,29 @@ class GroupList extends Component {
                 >
                   {listvalue}{this.checkJoinStatus(listvalue,' (Joined)',' (Not-Join)')}
                 </li>
-                <input
-                  type="button"
+                <button
+                  type="submit"
                   className={this.checkJoinStatus(listvalue,'leave','join')}
-                  value={this.checkJoinStatus(listvalue,'leave','join')}
+                  value={this.checkJoinStatus(listvalue,'leave','join') +'_'+ listvalue} 
                   onClick={e => {
-                    console.log(e.target);
+                    var tmp = e.target.value.split("_");
+                    var tmp2 = this.props.isJoinGroupList
+                    for (var i = 0; i < this.props.groupList.length; i++) {
+                      if (this.props.groupList[i] === tmp[1]){
+                        if(tmp[0]==="leave"){
+                          tmp2[i] = false;
+                        }else{
+                          tmp2[i] = true;
+                        }
+                        this.props.updateIsJoinGroupList(tmp2)
+                        break;
+                      }
+                      
+                    }
                   }}
-                />
+                >
+                {this.checkJoinStatus(listvalue,'leave','join')}
+                </button>
               </div>
             );
           }, this)}

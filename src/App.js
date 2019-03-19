@@ -93,6 +93,7 @@ class App extends Component {
     this.getRefsFromChildChat = this.getRefsFromChildChat.bind(this);
     this.submitMessage = this.submitMessage.bind(this);
     this.userInput = this.userInput.bind(this);
+    this.updateIsJoinGroupList = this.updateIsJoinGroupList.bind(this);
   }
 
   //--------------------Login-----------------------
@@ -142,6 +143,11 @@ class App extends Component {
       myRequestedRefs: childRef
     });
     console.log(this.state.myRequestedRefs);
+  }
+
+  //------ north add ja -----//
+  updateIsJoinGroupList(newList){
+    this.setState({isJoinGroupList:newList});
   }
 
   //---------------------ChatPanel------------------------
@@ -196,6 +202,7 @@ class App extends Component {
               groupList={this.state.groupList}
               onAddItem={this.onAddItem}
               passRefUpward={this.getRefsFromChild}
+              updateIsJoinGroupList={this.updateIsJoinGroupList}
             />
             <ChatPanel
               username={this.state.username}

@@ -41,18 +41,24 @@
   height: 49px;
   float: right;
   background-color: #fd5757;
+  border-radius: 15%;
+  color:white;
+  font-weight: bold;
 }
 .leave:hover {
-  background-color: #ff0000;
+  background-color: #c11f2a;
 }
 .join {
   width: 66px;
   height: 49px;
   float: right;
-  background-color: #5fff8a;
+  background-color: #3dc63b;
+  border-radius: 15%;
+  color:white;
+  font-weight: bold;
 }
 .join:hover {
-  background-color: #00ff44;
+  background-color: #217020;
 }
 #eachGroupItem:hover {
   background: #0fc5f3;
@@ -63,4 +69,5 @@
   width: 30%;
   height: 38px;
   padding: 10px;
+  
 }
