@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import "../CSS/GroupList.css";
 
 class GroupList extends Component {
-  checkJoinStatus(value) {
+  checkJoinStatus(value,leave,join) {
     var groupList = this.props.groupList;
     var isJoin = this.props.isJoinGroupList;
-    return isJoin[groupList.indexOf(value)] ? "leave" : "join";
+    return isJoin[groupList.indexOf(value)] ? leave : join;
   }
   componentDidMount() {
     this.props.passRefUpward(this.refs)
@@ -50,14 +50,12 @@ class GroupList extends Component {
                     this.props.updateCurrentGroup(listvalue);
                   }}
                 >
-                  {listvalue}
+                  {listvalue}{this.checkJoinStatus(listvalue,' (Joined)',' (Not-Join)')}
                 </li>
                 <input
                   type="button"
-                  className={this.checkJoinStatus(listvalue)}
-                  ref={listvalue}
-                  name={listvalue}
-                  value={this.checkJoinStatus(listvalue)}
+                  className={this.checkJoinStatus(listvalue,'leave','join')}
+                  value={this.checkJoinStatus(listvalue,'leave','join')}
                   onClick={e => {
                     console.log(e.target);
                   }}
