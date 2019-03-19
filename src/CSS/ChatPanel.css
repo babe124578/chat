@@ -93,28 +93,21 @@ img.left{
   padding: 0 5px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
-  margin-left: 10px;
+  margin-left: 1%;
   margin-right: 2px;
   height: 30px;
-  width: 85%;
+  width: 88%;
   box-sizing: border-box;
   font-size: 14px;
 }
 
-.input input[type="submit"] {
-  margin-right: 10px;
-  margin-left: 2px;
-  background: #A6CF84;
-  border: 1px solid black;
-  height: 30px;
-  width: 15%;
-  font-size: 14px;
-  box-sizing: border-box;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  color : black;
+#submitButton {
+  height: 35px;
+  margin-right: 1%;
+  width: 10%;
+}
+#plane {
+  margin-top:0px;
 }
 
 .input input[type="submit"]:hover {

@@ -12,7 +12,7 @@ class App extends Component {
     this.state = {
       currentPage: "Login",
       username: "",
-      currentGroup: ""
+      currentGroup: "Not in group."
     };
     this.updateUsername = this.updateUsername.bind(this);
     this.updateCurrentPage = this.updateCurrentPage.bind(this);

@@ -141,11 +141,13 @@ class ChatPanel extends Component {
                     this.userInput(e.target.value);
                   }}
                 />
-                <input
+                <button
                   type="submit"
                   value="Submit"
+                  className="btn btn-success"
+                  id='submitButton'
                   disabled={!this.state.typeText.trim().length > 0}
-                />
+                ><i class="fa fa-paper-plane" id='plane' aria-hidden="true"></i></button>
               </form>
             </div>
           </div>
