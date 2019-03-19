@@ -18,11 +18,18 @@ class App extends Component {
       isJoinGroupList: [true, false, true],
       groupList: ["Group1", "Group2", "Group3"],
       allChats: {
+        DidntSelectGroup: [
+          {
+            username: "System",
+            content: <p>You didn't select a group!</p>,
+            timeStamp: "9:59"
+          }
+        ],
         NoGroup: [
           {
             username: "System",
-            content: <p>You didn't join this group!</p>,
-            timeStamp: "9:59"
+            content: <p>Sorry, You didn't join this group!</p>,
+            timeStamp: "23:59"
           }
         ],
         Group1: [
@@ -56,7 +63,7 @@ class App extends Component {
           {
             username: "Group2",
             content: <p>group2</p>,
-            timeStamp: "3.45"
+            timeStamp: "3:45"
           }
         ],
         Group3: [
@@ -73,7 +80,7 @@ class App extends Component {
           {
             username: "Group3",
             content: <p>Group3</p>,
-            timeStamp: "3.45"
+            timeStamp: "3:45"
           }
         ]
       }
@@ -83,6 +90,7 @@ class App extends Component {
     this.updateCurrentGroup = this.updateCurrentGroup.bind(this);
     this.createGroup = this.createGroup.bind(this);
     this.getRefsFromChild = this.getRefsFromChild.bind(this);
+    this.getRefsFromChildChat = this.getRefsFromChildChat.bind(this);
     this.submitMessage = this.submitMessage.bind(this);
     this.userInput = this.userInput.bind(this);
   }
@@ -126,6 +134,7 @@ class App extends Component {
     this.setState({
       myRequestedRefs: childRef
     });
+    console.log(this.state.myRequestedRefs);
   }
 
   //---------------------ChatPanel------------------------
@@ -137,20 +146,26 @@ class App extends Component {
     ].concat([
       {
         username: this.state.username,
-        content: <p>{ReactDOM.findDOMNode(this.state.myRequestedRefs.msg).value}</p>,
+        content: <p>{ReactDOM.findDOMNode(this.state.myRequestedRefsChat.msg).value}</p>,
         timeStamp: "23:59"
       }
     ]);
     this.setState({
       allChats: tmp
     });
-    ReactDOM.findDOMNode(this.state.myRequestedRefs.msg).value = "";
+    ReactDOM.findDOMNode(this.state.myRequestedRefsChat.msg).value = "";
     this.userInput("");
   }
   userInput(value) {
     this.setState({
       typeText: value
     });
+  }
+  getRefsFromChildChat(chatRef) {
+    this.setState({
+      myRequestedRefsChat: chatRef
+    });
+    console.log(this.state.myRequestedRefs);
   }
 
   render() {
@@ -184,7 +199,7 @@ class App extends Component {
               typeText={this.state.typeText}
               submitMessage={this.submitMessage}
               userInput={this.userInput}
-              passRefUpward={this.getRefsFromChild}
+              passRefUpwardChat={this.getRefsFromChildChat}
             />
           </div>
         ) : this.state.currentPage === "Login" ? (

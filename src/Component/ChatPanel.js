@@ -12,7 +12,7 @@ class ChatPanel extends Component {
     };
   }
   componentDidMount() {
-    this.props.passRefUpward(this.refs)
+    this.props.passRefUpwardChat(this.refs);
   }
   checkJoinStatus(value) {
     var groupList = this.props.groupList;
@@ -38,12 +38,17 @@ class ChatPanel extends Component {
                       <Message chat={chat} user={username} />
                     ))
                   : allChats[this.props.currentGroup]
-                  ? null
-                  : allChats["NoGroup"].map(chat => (
+                  ? allChats["NoGroup"].map(chat => (
+                      <Message chat={chat} user={username} />
+                    ))
+                  : allChats["DidntSelectGroup"].map(chat => (
                       <Message chat={chat} user={username} />
                     ))}
               </ul>
-              <form className="input" onSubmit={e => this.props.submitMessage(e)}>
+              <form
+                className="input"
+                onSubmit={e => this.props.submitMessage(e)}
+              >
                 <input
                   type="text"
                   ref="msg"
