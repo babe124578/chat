@@ -60,7 +60,6 @@ class GroupList extends Component {
                 {listvalue}
                 <div className="ThreeButton">
                 <button>Join</button>
-                <button>Exit</button>
                 <button>Leave</button>
               </div>
               </li>
