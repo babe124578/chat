@@ -47,7 +47,12 @@ class ChatPanel extends Component {
               </ul>
               <form
                 className="input"
-                onSubmit={e => this.props.submitMessage(e)}
+                onSubmit={e => {
+                  this.checkJoinStatus(this.props.currentGroup) ?
+                  this.props.submitMessage(e)
+                  :
+                  e.preventDefault();
+                }}
               >
                 <input
                   type="text"
