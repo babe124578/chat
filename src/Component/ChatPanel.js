@@ -98,19 +98,20 @@ class ChatPanel extends Component {
   }
   submitMessage(e) {
     e.preventDefault();
-    this.setState(
-      {
-        chats: this.state.chats.concat([
-          {
+    let tmp = Object.assign({}, this.state.allChats);    //creating copy of object
+    tmp[this.props.currentGroup] = this.state.allChats[this.props.currentGroup].concat([{
             username: this.state.name,
             content: <p>{ReactDOM.findDOMNode(this.refs.msg).value}</p>,
-          }
-        ])
-      },
-      () => {
-        ReactDOM.findDOMNode(this.refs.msg).value = "";
+            timeStamp: "23:59"
+          }]);  
+    this.setState(
+      {
+        allChats : tmp
+        
       }
+
     );
+    ReactDOM.findDOMNode(this.refs.msg).value = "";
     scrollBot();
     this.userInput("");
   }
