@@ -10,7 +10,7 @@ class NavigationBar extends Component {
           <p>Welcome: {this.props.username}</p>
           <p>Group Name: {this.props.currentGroup}</p>
           <NavLink to="/">
-            <button
+            <button className="redBtn"
               onClick={e => {
                 this.props.updateUsername("");
                 this.props.updateCurrentPage("Login");

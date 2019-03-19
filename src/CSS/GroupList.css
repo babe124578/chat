@@ -35,3 +35,13 @@
   height: 38px;
   padding: 10px;
 }
+
+.greenBtn{
+  background-color:#44c767;
+}
+
+.redBtn{
+  background-color:#ca5c5c;
+  margin-left: 4px;
+}
+

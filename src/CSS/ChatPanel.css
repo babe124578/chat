@@ -1,6 +1,5 @@
 .chat-container {
   float: right;
-  height: 100%;
   width: 68%;
   float: right;
   background-color: #D6EDFB;
@@ -12,7 +11,7 @@
   box-sizing: border-box;
   padding: 0 20px;
   margin: 10px 0 0;
-  height: 93.8vh;
+  height: 82vh;
   overflow-y: scroll;
 }
 
@@ -78,7 +77,6 @@ img.left{
 }
 
 .input {
-  height: 40px;
   width: 100%;
   background: transparent;
   display: flex;
