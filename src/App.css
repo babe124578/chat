@@ -3,26 +3,3 @@
   background-image: linear-gradient(#ffffff, #5eb7eb);
   height: 100vh;
 }
-
-.Field-Container {
-  font-family: "Baloo Chettan", cursive;
-  padding: 25px;
-  width: 400px;
-  height: 40vh;
-  border: #000000 solid 2px;
-  border-radius: 1rem;
-  background-color: #999999;
-  margin-top: 30vh;
-  display: inline-block;
-  text-align: center;
-}
-
-.enterText {
-  margin-top: 10px;
-}
-
-.blankAlert {
-  font-family: "Quicksan";
-  text-align: left;
-  color: red;
-}

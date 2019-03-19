@@ -3,29 +3,53 @@
   float: left;
 }
 
-.form-group{
-  width: 70%;
+.form-group {
+  width: calc(100% - 38px);
 }
 
-.addLabel{
+.addLabel {
   width: 100%;
 }
 
-.inputLeft{
+#groupItem {
   width: 100%;
   padding: 5px;
+  border-top-right-radius: 0rem;
+  border-bottom-right-radius: 0rem;
+}
+#addButton {
+  border-top-left-radius: 0rem;
+  border-bottom-left-radius: 0rem;
+  width: 38px;
+}
+#StatusButton {
+  width: 66px;
+  height: 49px;
+}
+#eachGroupItem {
+  height: 49px;
+  float: left;
+  width: calc(100% - 66px);
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  border-top-right-radius: 0rem;
+  border-bottom-right-radius: 0rem;
 }
 
-.eachGroupItem{
-  height: 30px;
-
-}
-
-.ThreeButton{
+.leave {
+  width: 66px;
+  height: 49px;
   float: right;
+  background-color: #ff0000;
+}
+.join {
+  width: 66px;
+  height: 49px;
+  float: right;
+  background-color: #00ff44;
 }
 
-#eachGroupItem:hover{
+#eachGroupItem:hover {
   background: #0fc5f3;
   color: #fff;
 }
@@ -36,12 +60,10 @@
   padding: 10px;
 }
 
-.greenBtn{
-  background-color:#44c767;
+.greenBtn {
+  background-color: #44c767;
 }
 
-.redBtn{
-  background-color:#ca5c5c;
-  margin-left: 4px;
+.redBtn {
+  background-color: #ca5c5c;
 }
-

@@ -1,7 +1,6 @@
 .chat-container {
   float: right;
   width: 68%;
-  float: right;
   background-color: #D6EDFB;
   overflow: hidden;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3);
@@ -11,7 +10,7 @@
   box-sizing: border-box;
   padding: 0 20px;
   margin: 10px 0 0;
-  height: 82vh;
+  height: 82.5vh;
   overflow-y: scroll;
 }
 

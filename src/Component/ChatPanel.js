@@ -8,117 +8,22 @@ class ChatPanel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      typeText: "",
       name: this.props.username,
-      isLogout: false,
-      groupList: [],
-      chats: [
-        {
-          username: "This",
-          content: <p>message1</p>,
-          timeStamp: "1:23"
-        },
-        {
-          username: "is",
-          content: <p>message2</p>,
-          timeStamp: "2:34"
-        },
-        {
-          username: "Group1",
-          content: <p>message3adfasdfajsdfkjasdfjkasdfklhaslkdfhkasdjfklahsdflkjhalskdfhlkds</p>,
-          timeStamp: "3.45"
-        },
-      ],
-      allChats : {
-        "" : [
-        {
-          username: "Test ja ",
-          content: <p> Test ja</p>,
-          timeStamp: "wtf"
-        }],
-        "Group1" : [
-        {
-          username: "This",
-          content: <p>This</p>,
-          timeStamp: "1:23"
-        },
-        {
-          username: "is",
-          content: <p>is</p>,
-          timeStamp: "2:34"
-        },
-        {
-          username: "Group1",
-          content: <p>group1</p>,
-          timeStamp: "3.45"
-        },
-      ],
-      "Group2" : [
-        {
-          username: "This",
-          content: <p>This</p>,
-          timeStamp: "1:23"
-        },
-        {
-          username: "is",
-          content: <p>is</p>,
-          timeStamp: "2:34"
-        },
-        {
-          username: "Group2",
-          content: <p>group2</p>,
-          timeStamp: "3.45"
-        },
-      ],
-      "Group3" : [
-        {
-          username: "This",
-          content: <p>This</p>,
-          timeStamp: "1:23"
-        },
-        {
-          username: "is",
-          content: <p>is</p>,
-          timeStamp: "2:34"
-        },
-        {
-          username: "Group3",
-          content: <p>Group3</p>,
-          timeStamp: "3.45"
-        },
-      ]
-      }
+      isLogout: false
     };
-    this.submitMessage = this.submitMessage.bind(this);
   }
-  userInput(value) {
-    this.setState({
-      typeText: value
-    });
+  componentDidMount() {
+    this.props.passRefUpward(this.refs)
   }
-  submitMessage(e) {
-    e.preventDefault();
-    let tmp = Object.assign({}, this.state.allChats);    //creating copy of object
-    tmp[this.props.currentGroup] = this.state.allChats[this.props.currentGroup].concat([{
-            username: this.state.name,
-            content: <p>{ReactDOM.findDOMNode(this.refs.msg).value}</p>,
-            timeStamp: "23:59"
-          }]);  
-    this.setState(
-      {
-        allChats : tmp
-        
-      }
-
-    );
-    ReactDOM.findDOMNode(this.refs.msg).value = "";
-    scrollBot();
-    this.userInput("");
+  checkJoinStatus(value) {
+    var groupList = this.props.groupList;
+    var isJoin = this.props.isJoinGroupList;
+    return isJoin[groupList.indexOf(value)] ? true : false;
   }
 
   render() {
     const username = this.state.name;
-    const { chats,allChats} = this.state;
+    const { allChats } = this.props;
 
     return this.state.isLogout ? (
       <App />
@@ -128,27 +33,34 @@ class ChatPanel extends Component {
           <div className="chat-container" id="scrollc">
             <div className="chatbox-container">
               <ul className="chats" id="chatInput">
-                {allChats[this.props.currentGroup] ? (allChats[this.props.currentGroup].map(chat => (
-                  <Message chat={chat} user={username} />
-                ))
-                ) : ( null )
-              }
+                {allChats[this.props.currentGroup] &&
+                this.checkJoinStatus(this.props.currentGroup)
+                  ? allChats[this.props.currentGroup].map(chat => (
+                      <Message chat={chat} user={username} />
+                    ))
+                  : allChats[this.props.currentGroup]
+                  ? null
+                  : allChats["NoGroup"].map(chat => (
+                      <Message chat={chat} user={username} />
+                    ))}
               </ul>
-              <form className="input" onSubmit={e => this.submitMessage(e)}>
+              <form className="input" onSubmit={e => this.props.submitMessage(e)}>
                 <input
                   type="text"
                   ref="msg"
                   onChange={e => {
-                    this.userInput(e.target.value);
+                    this.props.userInput(e.target.value);
                   }}
                 />
                 <button
                   type="submit"
                   value="Submit"
                   className="btn btn-success"
-                  id='submitButton'
-                  disabled={!this.state.typeText.trim().length > 0}
-                ><i class="fa fa-paper-plane" id='plane' aria-hidden="true"></i></button>
+                  id="submitButton"
+                  disabled={!this.props.typeText.trim().length > 0}
+                >
+                  <i class="fa fa-paper-plane" id="plane" aria-hidden="true" />
+                </button>
               </form>
             </div>
           </div>
