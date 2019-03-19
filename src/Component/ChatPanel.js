@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 import "../CSS/ChatPanel.css";
 import App from "../App";
 import Message from "./Message";
@@ -68,9 +67,5 @@ class ChatPanel extends Component {
       </div>
     );
   }
-}
-function scrollBot() {
-  var elmnt = document.getElementById("scrollc");
-  elmnt.scrollIntoView();
 }
 export default ChatPanel;

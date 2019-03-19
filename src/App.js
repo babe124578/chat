@@ -6,7 +6,6 @@ import NavigationBar from "./Component/NavigationBar";
 import LoginPage from "./Component/LoginPage";
 import GroupList from "./Component/GroupList";
 import ChatPanel from "./Component/ChatPanel";
-import Message from "./Component/Message";
 
 class App extends Component {
   constructor(props) {
