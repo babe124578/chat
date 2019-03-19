@@ -113,6 +113,12 @@ class App extends Component {
       currentGroup: value
     });
   }
+  onAddChatItem() {
+    let newRef = this.state.myRequestedRefs.groupName.value;
+    this.setState({
+      allChats: {...this.state.allChats, [newRef]: []}
+    })
+  }
   onAddItem() {
     this.setState({
       groupList: [
@@ -121,6 +127,7 @@ class App extends Component {
       ],
       isJoinGroupList: [...this.state.isJoinGroupList, true]
     });
+    this.onAddChatItem();
     this.state.myRequestedRefs.groupForm.reset();
   }
   createGroup(e) {
