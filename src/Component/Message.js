@@ -9,7 +9,7 @@ const Message = ({ chat, user }) => (
       </div>
     </span>
     <div className={`content ${user === chat.username ? "right" : "left"}`}>
-    {chat.content}
+    <p>{chat.content}</p>
     </div>
     <div className={`time ${user === chat.username ? "left" : "right"}`}>
     {chat.timeStamp}

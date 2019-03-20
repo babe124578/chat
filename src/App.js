@@ -21,65 +21,65 @@ class App extends Component {
         DidntSelectGroup: [
           {
             username: "System",
-            content: <p>You didn't select a group!</p>,
+            content: "You didn't select a group!",
             timeStamp: "9:59"
           }
         ],
         NoGroup: [
           {
             username: "System",
-            content: <p>Sorry, You didn't join this group!</p>,
+            content: "Sorry, You didn't join this group!",
             timeStamp: "23:59"
           }
         ],
         Group1: [
           {
             username: "This",
-            content: <p>This</p>,
+            content: "This",
             timeStamp: "1:23"
           },
           {
             username: "is",
-            content: <p>is</p>,
+            content: "is",
             timeStamp: "2:34"
           },
           {
             username: "Group1",
-            content: <p>group1</p>,
+            content: "group1",
             timeStamp: "3:45"
           }
         ],
         Group2: [
           {
             username: "This",
-            content: <p>This</p>,
+            content: "This",
             timeStamp: "1:23"
           },
           {
             username: "is",
-            content: <p>is</p>,
+            content: "is",
             timeStamp: "2:34"
           },
           {
             username: "Group2",
-            content: <p>group2</p>,
+            content: "group2",
             timeStamp: "3:45"
           }
         ],
         Group3: [
           {
             username: "This",
-            content: <p>This</p>,
+            content: "This",
             timeStamp: "1:23"
           },
           {
             username: "is",
-            content: <p>is</p>,
+            content: "is",
             timeStamp: "2:34"
           },
           {
             username: "Group3",
-            content: <p>Group3</p>,
+            content: "Group3",
             timeStamp: "3:45"
           }
         ]
