@@ -15,23 +15,13 @@ class App extends Component {
       currentPage: "Login",
       username: "",
       currentGroup: "Not in group.",
-      isJoinGroupList: [true, false, true],
-      groupList: ["Group1", "Group2", "Group3"],
+      mockJoinForEachUser: {
+        This: [false, true, true],
+        glue: [true, false, false],
+        tun: [true, true, true],
+        dad: [false, false, false]
+      },
       allChats: {
-        DidntSelectGroup: [
-          {
-            username: "System",
-            content: "You didn't select a group!",
-            timeStamp: "9:59"
-          }
-        ],
-        NoGroup: [
-          {
-            username: "System",
-            content: "Sorry, You didn't join this group!",
-            timeStamp: "23:59"
-          }
-        ],
         Group1: [
           {
             username: "This",
@@ -93,9 +83,9 @@ class App extends Component {
     this.getRefsFromChildChat = this.getRefsFromChildChat.bind(this);
     this.submitMessage = this.submitMessage.bind(this);
     this.userInput = this.userInput.bind(this);
-    this.updateIsJoinGroupList = this.updateIsJoinGroupList.bind(this);
+    this.updateMockJoin = this.updateMockJoin.bind(this);
+    this.updateMockNewUser = this.updateMockNewUser.bind(this);
   }
-
   //--------------------Login-----------------------
   updateUsername(value) {
     this.setState({
@@ -107,6 +97,16 @@ class App extends Component {
       currentPage: status
     });
   }
+  updateMockNewUser(name) {
+    if (!(name in this.state.mockJoinForEachUser)) {
+      this.setState({
+        mockJoinForEachUser: {
+          ...this.state.mockJoinForEachUser,
+          [name]: Array(Object.keys(this.state.allChats).length).fill(false)
+        }
+      });
+    }
+  }
 
   //------------------GroupList---------------------
   updateCurrentGroup(value) {
@@ -115,21 +115,24 @@ class App extends Component {
     });
   }
   onAddChatItem() {
-    let newRef = this.state.myRequestedRefs.groupName.value;
+    var [newRef] = this.state.myRequestedRefs.groupName.value;
+    console.log([newRef])
     this.setState({
-      allChats: {...this.state.allChats, [newRef]: []}
-    })
+      allChats: { ...this.state.allChats, [newRef]: [] }
+    });
   }
   onAddItem() {
-    this.setState({
-      groupList: [
-        ...this.state.groupList,
-        this.state.myRequestedRefs.groupName.value
-      ],
-      isJoinGroupList: [...this.state.isJoinGroupList, true]
-    });
-    this.onAddChatItem();
-    this.state.myRequestedRefs.groupForm.reset();
+    let tmp = Object.assign({}, this.state.mockJoinForEachUser);
+    for(var i in this.state.mockJoinForEachUser){
+      tmp[i] = this.state.mockJoinForEachUser[i].concat([
+        i===this.state.username ? true : false
+      ]);
+      this.setState({
+        mockJoinForEachUser: tmp
+      });
+    }
+      this.onAddChatItem();
+      this.state.myRequestedRefs.groupForm.reset();
   }
   createGroup(e) {
     e.preventDefault();
@@ -142,12 +145,16 @@ class App extends Component {
     this.setState({
       myRequestedRefs: childRef
     });
-    console.log(this.state.myRequestedRefs);
   }
 
   //------ north add ja -----//
-  updateIsJoinGroupList(newList){
-    this.setState({isJoinGroupList:newList});
+  updateMockJoin(newList) {
+    for (var eachUser in this.state.mockJoinForEachUser) {
+      if (eachUser === this.state.username) {
+        var test = this.state.mockJoinForEachUser.eachUser;
+        this.setState({ [test]: newList });
+      }
+    }
   }
 
   //---------------------ChatPanel------------------------
@@ -159,7 +166,11 @@ class App extends Component {
     ].concat([
       {
         username: this.state.username,
-        content: <p>{ReactDOM.findDOMNode(this.state.myRequestedRefsChat.msg).value}</p>,
+        content: (
+          <p>
+            {ReactDOM.findDOMNode(this.state.myRequestedRefsChat.msg).value}
+          </p>
+        ),
         timeStamp: "23:59"
       }
     ]);
@@ -178,7 +189,6 @@ class App extends Component {
     this.setState({
       myRequestedRefsChat: chatRef
     });
-    console.log(this.state.myRequestedRefs);
   }
 
   render() {
@@ -198,22 +208,23 @@ class App extends Component {
               currentGroup={this.state.currentGroup}
               username={this.state.username}
               createGroup={this.createGroup}
-              isJoinGroupList={this.state.isJoinGroupList}
               groupList={this.state.groupList}
               onAddItem={this.onAddItem}
               passRefUpward={this.getRefsFromChild}
-              updateIsJoinGroupList={this.updateIsJoinGroupList}
+              updateMockJoin={this.updateMockJoin}
+              allChats={this.state.allChats}
+              mockJoinForEachUser={this.state.mockJoinForEachUser}
             />
             <ChatPanel
               username={this.state.username}
               currentGroup={this.state.currentGroup}
-              isJoinGroupList={this.state.isJoinGroupList}
               groupList={this.state.groupList}
               allChats={this.state.allChats}
               typeText={this.state.typeText}
               submitMessage={this.submitMessage}
               userInput={this.userInput}
               passRefUpwardChat={this.getRefsFromChildChat}
+              mockJoinForEachUser={this.state.mockJoinForEachUser}
             />
           </div>
         ) : this.state.currentPage === "Login" ? (
@@ -223,6 +234,8 @@ class App extends Component {
               updateCurrentPage={this.updateCurrentPage}
               username={this.state.username}
               currentPage={this.state.currentPage}
+              mockJoinForEachUser={this.state.mockJoinForEachUser}
+              updateMockNewUser={this.updateMockNewUser}
             />
           </div>
         ) : null}

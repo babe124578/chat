@@ -8,8 +8,10 @@ class LoginPage extends Component {
     this.submitHandler = this.submitHandler.bind(this);
   }
   submitHandler(e) {
-    if (this.props.username.trim().length > 0)
+    if (this.props.username.trim().length > 0){
+      this.props.updateMockNewUser(this.props.username);
       this.props.updateCurrentPage("Chat");
+    }
     else return false;
   }
 /** ****Notes***** If account name exist and no-one login with that account. -- Get stage from --
@@ -45,6 +47,7 @@ class LoginPage extends Component {
                 className="btn btn-primary"
                 type="submit"
                 onClick={e => {
+                  this.props.updateMockNewUser(this.props.username);
                   this.props.updateCurrentPage("Chat");
                 }}
               >
