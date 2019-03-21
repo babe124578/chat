@@ -16,60 +16,9 @@ class App extends Component {
       currentPage: "Login",
       username: "",
       currentGroup: "Not in group.",
-      isJoinGroupList: [true, false, true],
-      groupList: ["Group1", "Group2", "Group3"],
-      allChats: {
-        Group1: [
-          {
-            username: "This",
-            content: "This",
-            timeStamp: "1:23"
-          },
-          {
-            username: "is",
-            content: "is",
-            timeStamp: "2:34"
-          },
-          {
-            username: "Group1",
-            content: "group1",
-            timeStamp: "3:45"
-          }
-        ],
-        Group2: [
-          {
-            username: "This",
-            content: "This",
-            timeStamp: "1:23"
-          },
-          {
-            username: "is",
-            content: "is",
-            timeStamp: "2:34"
-          },
-          {
-            username: "Group2",
-            content: "group2",
-            timeStamp: "3:45"
-          }
-        ],
-        Group3: [
-          {
-            username: "This",
-            content: "This",
-            timeStamp: "1:23"
-          },
-          {
-            username: "is",
-            content: "is",
-            timeStamp: "2:34"
-          },
-          {
-            username: "Group3",
-            content: "Group3",
-            timeStamp: "3:45"
-          }
-        ]
+      isJoinGroupList: [], // [true, false, true],
+      groupList: [], //["Group1", "Group2", "Group3"],
+      allChats: { // If want dummy ,GO copy from past it's too long
       }
     };
     // Socket Things --------------------------------
@@ -80,17 +29,19 @@ class App extends Component {
     this.socket.on('updateAllChats',function(data) { // Have setstate
       console.log('Received [updateAllChats] event!')
       console.log(data)
-      me.setState({...me.state, allChats:data.allChats});
-      //console.log(me.state.allchats)
+      me.setState({...me.state, allChats:data});
+      console.log(me.state)
     })
     this.socket.on('updateIsJoined', function(data){ // Have setState
       console.log('Received [updateIsJoin] event')
       me.setState({...me.state, groupList:data.groupList, isJoinGroupList:data.isJoinGroupList })
+      console.log(me.state)
     })
     this.socket.on('notifyNewGroup',function(data){ // event after create group, getAllchats is broadcast after create group too
       console.log('Received [notifyNewGroup] event')
       me.socket.emit('getUpdateIsjoin',this.state.username) // 
     })
+    this.SocketEmit = this.SocketEmit.bind(this);
     // End Socket Things ----------------------------
     
     this.updateUsername = this.updateUsername.bind(this);
@@ -104,6 +55,10 @@ class App extends Component {
     this.updateIsJoinGroupList = this.updateIsJoinGroupList.bind(this);
   }
 
+  
+  SocketEmit(event,value){
+    this.socket.emit(event,value);
+  }
   //--------------------Login-----------------------
   updateUsername(value) {
     this.setState({
@@ -231,6 +186,7 @@ class App extends Component {
               updateCurrentPage={this.updateCurrentPage}
               username={this.state.username}
               currentPage={this.state.currentPage}
+              SocketEmit={this.SocketEmit}
             />
           </div>
         ) : null}

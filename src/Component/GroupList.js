@@ -21,7 +21,7 @@ class GroupList extends Component {
           id="formPanel"
         >
           <div className="form-group">
-            <label className="addLabel" for="groupItem">
+            <label className="addLabel">
               <input
                 type="text"
                 id="groupItem"
@@ -36,13 +36,13 @@ class GroupList extends Component {
             id="addButton"
             className="btn btn-primary btn-sm"
           >
-            <i class="fas fa-plus" />
+            <i className="fas fa-plus" />
           </button>
         </form>
         <ul className="list-group">
           {this.props.groupList.map(function(listvalue) {
             return (
-              <div>
+              <div key={listvalue}>
                 <li
                   className="list-group-item list-group-item-info"
                   id="eachGroupItem"
