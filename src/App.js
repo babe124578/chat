@@ -115,24 +115,28 @@ class App extends Component {
     });
   }
   onAddChatItem() {
-    var [newRef] = this.state.myRequestedRefs.groupName.value;
-    console.log([newRef])
+    var newRef = this.state.myRequestedRefs.groupName.value;
+    console.log(this.state.myRequestedRefs.groupName)
+    console.log([newRef]);
     this.setState({
       allChats: { ...this.state.allChats, [newRef]: [] }
     });
   }
   onAddItem() {
     let tmp = Object.assign({}, this.state.mockJoinForEachUser);
-    for(var i in this.state.mockJoinForEachUser){
+    for (var i in this.state.mockJoinForEachUser) {
       tmp[i] = this.state.mockJoinForEachUser[i].concat([
-        i===this.state.username ? true : false
+        i === this.state.username ? true : false
       ]);
+      console.log(i)
+      console.log(this.state.username)
+      console.log(i===this.state.username)
       this.setState({
         mockJoinForEachUser: tmp
       });
     }
-      this.onAddChatItem();
-      this.state.myRequestedRefs.groupForm.reset();
+    this.onAddChatItem();
+    this.state.myRequestedRefs.groupForm.reset();
   }
   createGroup(e) {
     e.preventDefault();

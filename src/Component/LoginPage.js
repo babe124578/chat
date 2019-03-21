@@ -8,16 +8,15 @@ class LoginPage extends Component {
     this.submitHandler = this.submitHandler.bind(this);
   }
   submitHandler(e) {
-    if (this.props.username.trim().length > 0){
+    if (this.props.username.trim().length > 0) {
       this.props.updateMockNewUser(this.props.username);
       this.props.updateCurrentPage("Chat");
-    }
-    else return false;
+    } else return false;
   }
-/** ****Notes***** If account name exist and no-one login with that account. -- Get stage from --
- * If account name not exist in DB --Create new isJoinGroupList with all element false. --
- * If account name exist but someone login with that name -- Reject new login with that name. --
- */
+  /** ****Notes***** If account name exist and no-one login with that account. -- Get stage from --
+   * If account name not exist in DB --Create new isJoinGroupList with all element false. --
+   * If account name exist but someone login with that name -- Reject new login with that name. --
+   */
   render() {
     return (
       <div className="Login-Page">

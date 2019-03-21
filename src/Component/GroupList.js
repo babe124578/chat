@@ -71,11 +71,11 @@ class GroupList extends Component {
                     var name = this.props.username;
                     var tmp = e.target.value.split("_");
                     var data = this.props.mockJoinForEachUser;
-                    for(var key in data) {
-                      if(key === name) {
-                          var value = data[key];
+                    for (var key in data) {
+                      if (key === name) {
+                        var value = data[key];
                       }
-                  }
+                    }
                     var tmp2 = value;
                     for (
                       var i = 0;
