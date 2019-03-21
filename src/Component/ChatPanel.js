@@ -37,21 +37,14 @@ class ChatPanel extends Component {
                   ? allChats[this.props.currentGroup].map(chat => (
                       <Message chat={chat} user={username} />
                     ))
-                  : allChats[this.props.currentGroup]
-                  ? allChats["NoGroup"].map(chat => (
-                      <Message chat={chat} user={username} />
-                    ))
-                  : allChats["DidntSelectGroup"].map(chat => (
-                      <Message chat={chat} user={username} />
-                    ))}
+                  : null}
               </ul>
               <form
                 className="input"
                 onSubmit={e => {
-                  this.checkJoinStatus(this.props.currentGroup) ?
-                  this.props.submitMessage(e)
-                  :
-                  e.preventDefault();
+                  this.checkJoinStatus(this.props.currentGroup)
+                    ? this.props.submitMessage(e)
+                    : e.preventDefault();
                 }}
               >
                 <input

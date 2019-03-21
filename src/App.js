@@ -18,20 +18,6 @@ class App extends Component {
       isJoinGroupList: [true, false, true],
       groupList: ["Group1", "Group2", "Group3"],
       allChats: {
-        DidntSelectGroup: [
-          {
-            username: "System",
-            content: "You didn't select a group!",
-            timeStamp: "9:59"
-          }
-        ],
-        NoGroup: [
-          {
-            username: "System",
-            content: "Sorry, You didn't join this group!",
-            timeStamp: "23:59"
-          }
-        ],
         Group1: [
           {
             username: "This",
