@@ -39,7 +39,7 @@ class App extends Component {
     })
     this.socket.on('notifyNewGroup',function(data){ // event after create group, getAllchats is broadcast after create group too
       console.log('Received [notifyNewGroup] event')
-      me.socket.emit('getUpdateIsjoin',this.state.username) // 
+      me.socket.emit('getUpdateIsjoin',me.state.username) // 
     })
     this.SocketEmit = this.SocketEmit.bind(this);
     // End Socket Things ----------------------------
@@ -77,21 +77,8 @@ class App extends Component {
       currentGroup: value
     });
   }
-  onAddChatItem() {
-    let newRef = this.state.myRequestedRefs.groupName.value;
-    this.setState({
-      allChats: {...this.state.allChats, [newRef]: []}
-    })
-  }
   onAddItem() {
-    this.setState({
-      groupList: [
-        ...this.state.groupList,
-        this.state.myRequestedRefs.groupName.value
-      ],
-      isJoinGroupList: [...this.state.isJoinGroupList, true]
-    });
-    this.onAddChatItem();
+    this.socket.emit('createGroup',{username:this.state.username, groupname:this.state.myRequestedRefs.groupName.value})
     this.state.myRequestedRefs.groupForm.reset();
   }
   createGroup(e) {
@@ -116,19 +103,27 @@ class App extends Component {
   //---------------------ChatPanel------------------------
   submitMessage(e) {
     e.preventDefault();
-    let tmp = Object.assign({}, this.state.allChats); //creating copy of object
-    tmp[this.state.currentGroup] = this.state.allChats[
-      this.state.currentGroup
-    ].concat([
-      {
-        username: this.state.username,
-        content: <p>{ReactDOM.findDOMNode(this.state.myRequestedRefsChat.msg).value}</p>,
-        timeStamp: "23:59"
-      }
-    ]);
-    this.setState({
-      allChats: tmp
-    });
+    var messagekub = {  userName: this.state.username,
+      groupName: this.state.currentGroup, 
+      text: ReactDOM.findDOMNode(this.state.myRequestedRefsChat.msg).value,
+      timestamp: Date()
+    };
+    console.log("messagekub");
+    console.log(messagekub);
+    this.socket.emit('sendMessage',messagekub);
+    // let tmp = Object.assign({}, this.state.allChats); //creating copy of object
+    // tmp[this.state.currentGroup] = this.state.allChats[
+    //   this.state.currentGroup
+    // ].concat([
+    //   {
+    //     username: this.state.username,
+    //     content: <p>{ReactDOM.findDOMNode(this.state.myRequestedRefsChat.msg).value}</p>,
+    //     timeStamp: "23:59"
+    //   }
+    // ]);
+    // this.setState({
+    //   allChats: tmp
+    // });
     ReactDOM.findDOMNode(this.state.myRequestedRefsChat.msg).value = "";
     this.userInput("");
   }
