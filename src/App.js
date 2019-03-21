@@ -6,6 +6,7 @@ import NavigationBar from "./Component/NavigationBar";
 import LoginPage from "./Component/LoginPage";
 import GroupList from "./Component/GroupList";
 import ChatPanel from "./Component/ChatPanel";
+import openSocket from 'socket.io-client';
 
 class App extends Component {
   constructor(props) {
@@ -71,6 +72,27 @@ class App extends Component {
         ]
       }
     };
+    // Socket Things --------------------------------
+    this.socket = openSocket('http://localhost:8000');
+    console.log('A socket created [App.js]')
+    const me = this;
+    
+    this.socket.on('updateAllChats',function(data) { // Have setstate
+      console.log('Received [updateAllChats] event!')
+      console.log(data)
+      me.setState({...me.state, allChats:data.allChats});
+      //console.log(me.state.allchats)
+    })
+    this.socket.on('updateIsJoined', function(data){ // Have setState
+      console.log('Received [updateIsJoin] event')
+      me.setState({...me.state, groupList:data.groupList, isJoinGroupList:data.isJoinGroupList })
+    })
+    this.socket.on('notifyNewGroup',function(data){ // event after create group, getAllchats is broadcast after create group too
+      console.log('Received [notifyNewGroup] event')
+      me.socket.emit('getUpdateIsjoin',this.state.username) // 
+    })
+    // End Socket Things ----------------------------
+    
     this.updateUsername = this.updateUsername.bind(this);
     this.updateCurrentPage = this.updateCurrentPage.bind(this);
     this.updateCurrentGroup = this.updateCurrentGroup.bind(this);
