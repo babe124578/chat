@@ -15,14 +15,8 @@ class ChatPanel extends Component {
     this.props.passRefUpwardChat(this.refs);
   }
   checkJoinStatus(value) {
-    var groupList = Object.keys(this.props.allChats);
-    var data = this.props.mockJoinForEachUser;
-    var isJoin;
-    for (var keysd in data) {
-      if (keysd === this.props.username) {
-        isJoin = data[keysd];
-      }
-    }
+    var groupList = this.props.groupList;
+    var isJoin = this.props.isJoinGroupList;
     return isJoin[groupList.indexOf(value)] ? true : false;
   }
 
@@ -43,14 +37,21 @@ class ChatPanel extends Component {
                   ? allChats[this.props.currentGroup].map(chat => (
                       <Message chat={chat} user={username} />
                     ))
-                  : null}
+                  : allChats[this.props.currentGroup]
+                  ? allChats["NoGroup"].map(chat => (
+                      <Message chat={chat} user={username} />
+                    ))
+                  : allChats["DidntSelectGroup"].map(chat => (
+                      <Message chat={chat} user={username} />
+                    ))}
               </ul>
               <form
                 className="input"
                 onSubmit={e => {
-                  this.checkJoinStatus(this.props.currentGroup)
-                    ? this.props.submitMessage(e)
-                    : e.preventDefault();
+                  this.checkJoinStatus(this.props.currentGroup) ?
+                  this.props.submitMessage(e)
+                  :
+                  e.preventDefault();
                 }}
               >
                 <input

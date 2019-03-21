@@ -2,21 +2,15 @@ import React, { Component } from "react";
 import "../CSS/GroupList.css";
 
 class GroupList extends Component {
-  checkJoinStatus(value, leave, join) {
-    var groupList = Object.keys(this.props.allChats);
-    var data = this.props.mockJoinForEachUser;
-    var isJoin;
-    for (var keysd in data) {
-      if (keysd === this.props.username) {
-        isJoin = data[keysd];
-      }
-    }
+  checkJoinStatus(value,leave,join) {
+    var groupList = this.props.groupList;
+    var isJoin = this.props.isJoinGroupList;
     return isJoin[groupList.indexOf(value)] ? leave : join;
   }
   componentDidMount() {
-    this.props.passRefUpward(this.refs);
+    this.props.passRefUpward(this.refs)
   }
-
+  
   render() {
     return (
       <div className="groupList-container">
@@ -46,7 +40,7 @@ class GroupList extends Component {
           </button>
         </form>
         <ul className="list-group">
-          {Object.keys(this.props.allChats).map(function(listvalue) {
+          {this.props.groupList.map(function(listvalue) {
             return (
               <div>
                 <li
@@ -56,45 +50,30 @@ class GroupList extends Component {
                     this.props.updateCurrentGroup(listvalue);
                   }}
                 >
-                  {listvalue}
-                  {this.checkJoinStatus(listvalue, " (Joined)", " (Not-Join)")}
+                  {listvalue}{this.checkJoinStatus(listvalue,' (Joined)',' (Not-Join)')}
                 </li>
                 <button
                   type="submit"
-                  className={this.checkJoinStatus(listvalue, "leave", "join")}
-                  value={
-                    this.checkJoinStatus(listvalue, "leave", "join") +
-                    "_" +
-                    listvalue
-                  }
+                  className={this.checkJoinStatus(listvalue,'leave','join')}
+                  value={this.checkJoinStatus(listvalue,'leave','join') +'_'+ listvalue} 
                   onClick={e => {
-                    var name = this.props.username;
                     var tmp = e.target.value.split("_");
-                    var data = this.props.mockJoinForEachUser;
-                    for (var key in data) {
-                      if (key === name) {
-                        var value = data[key];
-                      }
-                    }
-                    var tmp2 = value;
-                    for (
-                      var i = 0;
-                      i < Object.keys(this.props.allChats).length;
-                      i++
-                    ) {
-                      if (Object.keys(this.props.allChats)[i] === tmp[1]) {
-                        if (tmp[0] === "leave") {
+                    var tmp2 = this.props.isJoinGroupList
+                    for (var i = 0; i < this.props.groupList.length; i++) {
+                      if (this.props.groupList[i] === tmp[1]){
+                        if(tmp[0]==="leave"){
                           tmp2[i] = false;
-                        } else {
+                        }else{
                           tmp2[i] = true;
                         }
-                        this.props.updateMockJoin(tmp2);
+                        this.props.updateIsJoinGroupList(tmp2)
                         break;
                       }
+                      
                     }
                   }}
                 >
-                  {this.checkJoinStatus(listvalue, "leave", "join")}
+                {this.checkJoinStatus(listvalue,'leave','join')}
                 </button>
               </div>
             );
