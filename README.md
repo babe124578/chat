@@ -1,4 +1,4 @@
-**Please open this project on _GOOGLE CHROME_**
+## Compatible on _GOOGLE CHROME_
 
 
 
