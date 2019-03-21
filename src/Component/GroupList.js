@@ -39,6 +39,7 @@ class GroupList extends Component {
             <i className="fas fa-plus" />
           </button>
         </form>
+
         <ul className="list-group">
           {this.props.groupList.map(function(listvalue) {
             return (
@@ -58,19 +59,27 @@ class GroupList extends Component {
                   value={this.checkJoinStatus(listvalue,'leave','join') +'_'+ listvalue} 
                   onClick={e => {
                     var tmp = e.target.value.split("_");
-                    var tmp2 = this.props.isJoinGroupList
-                    for (var i = 0; i < this.props.groupList.length; i++) {
-                      if (this.props.groupList[i] === tmp[1]){
-                        if(tmp[0]==="leave"){
-                          tmp2[i] = false;
-                        }else{
-                          tmp2[i] = true;
-                        }
-                        this.props.updateIsJoinGroupList(tmp2)
-                        break;
-                      }
-                      
+                    console.log(tmp)
+                    if(tmp[0] === "leave") {
+                      this.props.SocketEmit('leaveGroup',{username:this.props.username,groupname:tmp[1]})
+                    } else if (tmp[0] === "join"){
+                      this.props.SocketEmit('joinGroup',{username:this.props.username,groupname:tmp[1]})  
                     }
+
+                    // var tmp2 = this.props.isJoinGroupList
+                    // for (var i = 0; i < this.props.groupList.length; i++) {
+                    //   if (this.props.groupList[i] === tmp[1]){
+                    //     if(tmp[0]==="leave"){
+                    //       tmp2[i] = false;
+                    //     }else{
+                    //       tmp2[i] = true;
+                    //     }
+                    //     console.log('tmp2')
+                    //     console.log(tmp2)
+                    //     this.props.updateIsJoinGroupList(tmp2)
+                    //     break;
+                    //     }                      
+                    //   }
                   }}
                 >
                 {this.checkJoinStatus(listvalue,'leave','join')}

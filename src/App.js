@@ -166,6 +166,7 @@ class App extends Component {
               onAddItem={this.onAddItem}
               passRefUpward={this.getRefsFromChild}
               updateIsJoinGroupList={this.updateIsJoinGroupList}
+              SocketEmit={this.SocketEmit}
             />
             <ChatPanel
               username={this.state.username}
